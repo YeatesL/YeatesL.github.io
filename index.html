@@ -345,7 +345,7 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <hr>
-<p>PE 结构是分节的<br>    原因：  1.节省硬盘空间<br>（0x32	虚拟地址空间  4gb）<br>硬盘对齐	—-<br>内存对齐	—-<br>6.2——磁盘文件与内存映像结构图———<br>DOS头:<br>WORD  e_magic;      &#x2F;&#x2F;5A4D<br>DWORD	e_lfanew;		&#x2F;&#x2F;基本上是第三行最后的4个字节   从右往左数</p>
+<p>PE 结构是分节的<br>    原因：  1.节省硬盘空间<br>（0x32	虚拟地址空间  4gb）<br>硬盘对齐	—-<br>内存对齐	—-<br>6.2——磁盘文件与内存映像结构图———<br>DOS头:<br>WORD  e_magic;      &#x2F;&#x2F;5A4D<br>DWORD	e_lfanew;		&#x2F;&#x2F;基本上是第三行最后的4个字节   从右往左数<br><img src="/" alt="6.3DOS头.png"><br><img src="/" alt="6.4PE磁盘文件与内存映像结构图.png"><br><img src="/" alt="6.5 ImageBase.jpg"></p>
 
       
     </div>
@@ -397,7 +397,7 @@ WORD	MinorImageVersion;
 WORD	MajorSubsystemVersion;
 WORD	MinorSubsystemVersion;
 DWORD	Win32VersionValue;
-DWORD	SizeOfImage;	----		内存中整个	PE文件的映射的尺寸，可以比实际的值大，但必须SectionAlignment的整数倍 
+DWORD	SizeOfImage;	----		内存中整个   PE文件的映射的尺寸，可以比实际的值大，但必须SectionAlignment的整数倍 
 DWORD	SizeOfHeaders;	----		所有头+节表按照文件对齐的大小，否者加载会出错
 DWORD	CheckSum；			校验和，一些系统文件的要求，用于判断文件是否被修改
 WORD	Subsystem;

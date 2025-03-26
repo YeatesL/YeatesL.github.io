@@ -14,7 +14,7 @@
 <meta property="og:description" content="1.DOC头    WORD   e_magic   —  “MZ标准”用于判断是否为可执行文件。    DWORD  e_lfanew   —  PE头相对于文件偏，用于定位PE文件2.标准PE头    WORD	Machine；		——		程序运行的CPU型号：  0x 00  任何处理器    WORD	NumberOfSection;	—-	文件中存在的节的总数，如果要新增节或合并节，就要">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-03-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-26T15:39:38.873Z">
+<meta property="article:modified_time" content="2025-03-26T15:43:32.774Z">
 <meta property="article:author" content="YeatesL">
 <meta name="twitter:card" content="summary">
   
@@ -106,7 +106,7 @@ WORD	MinorImageVersion;
 WORD	MajorSubsystemVersion;
 WORD	MinorSubsystemVersion;
 DWORD	Win32VersionValue;
-DWORD	SizeOfImage;	----		内存中整个	PE文件的映射的尺寸，可以比实际的值大，但必须SectionAlignment的整数倍 
+DWORD	SizeOfImage;	----		内存中整个   PE文件的映射的尺寸，可以比实际的值大，但必须SectionAlignment的整数倍 
 DWORD	SizeOfHeaders;	----		所有头+节表按照文件对齐的大小，否者加载会出错
 DWORD	CheckSum；			校验和，一些系统文件的要求，用于判断文件是否被修改
 WORD	Subsystem;
