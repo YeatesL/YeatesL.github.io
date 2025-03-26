@@ -110,47 +110,6 @@ void *mallce(size-t size)		这里返回的是void*类型  要强制转型				这
 
 
   
-    <article id="post-C/4.移位指令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/03/26/C/4.%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4/" class="article-date">
-  <time class="dt-published" datetime="2025-03-26T14:31:05.023Z" itemprop="datePublished">2025-03-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>在C语言中，可以使用移位运算符来实现移位操作。<br>    such：a&lt;&lt;1表示将变量a的值逻辑左移一位，相当于a&#x3D;a*2；<br>          a&gt;&gt;1表示将a的值算数右移一位，相当于a&#x3D;a&#x2F;2（对于无符号数是逻辑右移）</p>
-<p>算数移位指令 (有符号）<br>    SAL 向左移动一位 最左的数为CF位，且左侧补符号位				例： SAL al，1		al：1000 0001——-&gt; 0000 0010  CF位&#x3D;1<br>    SAR 向右移动一位 最右为CF位 ，且左侧补符号位(即补左侧的位） 		例： SAR al，1		al：1000 0001——-&gt; 1100 0000  CF位&#x3D;1<br>逻辑移位指令 （无符号)<br>    &lt;&lt;左移   SHL   逻辑左移指针  									例： SHL al，1		al：1000 0001——-&gt; 0000 0010  CF位&#x3D;1（最高位）<br>    &gt;&gt;右移   SHR 逻辑右移指针	(与算数右移指令不同的是：最左侧的 补0 ）	例：SHR al，1		al：1000 0001——-&gt; 0100 0000 CF位&#x3D;1（最低位）<br>        和上述不同的是 右移时最高位从补符号位改成补0</p>
-<p>循环移位指令<br>     ROL 循环左移指令	左侧的最高位拿出来分别放在 CF位 和  最低位		例：ROL al，1   al：1000 0001——&gt; 0000 0011 CF位&#x3D;1（把最高位那个1去做其他的）<br>     ROR 循环右移指令	右侧的最低位拿出来分别放在 CF位 和  最高位		例：ROR al，1   al：1000 0001——&gt; 1100 0000 CF位&#x3D;1（把最低位那个1去做其他的）<br>带进位的循环移位指令<br>      RCL  （左)	—-它俩的操作是把 符号位CF也加入到循环当中去			例：RCL al,1   CF&#x3D;1   al：1000 0010<br>                                                                CF&#x3D;1 1000 0010——&gt; CF&#x3D;1 0000 0101</p>
-<pre><code> RCR   (右)		----（把CF位 放在需要操作的数的左侧，当成一个整体去循环）      RCR al,1   CF=1   al：1000 0010
-                                                            CF=1 1000 0010------&gt; CF=0 1100 0001
-</code></pre>
-<p>!  –是  反  的意思</p>
-<p>~  –这个是  非  的意思</p>
-<blockquote>
-<blockquote>
-<p>右移   无符号  SHR<br>               有符号  SAR<br>—–编译器是怎么识别是用SHR 还是SAR呢？<br>    如果操作数被定义为无符号类型，如 unsigned int 等，通常会倾向于使用SHR指令，若操作数是有符号类型，如 int 等，编译器可能会选择SAR指令。<br>    若操作数是有符号类型，如 int 等，编译器可能会选择SAR指令，以确保符号位在移位过程中得到正确处理。<br>&lt;&lt;左移   SHL</p>
-</blockquote>
-</blockquote>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/C/4.%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4/" data-id="cm8q0yzkb0000mwv82f6acmbo" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-C" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/03/26/C/" class="article-date">
@@ -277,6 +236,57 @@ void *mallce(size-t size)		这里返回的是void*类型  要强制转型				这
 
 
   
+    <article id="post-C/4.移位指令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/26/C/4.%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4/" class="article-date">
+  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/03/26/C/4.%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4/">4.移位指令</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在C语言中，可以使用移位运算符来实现移位操作。<br>    such：a&lt;&lt;1表示将变量a的值逻辑左移一位，相当于a&#x3D;a*2；<br>          a&gt;&gt;1表示将a的值算数右移一位，相当于a&#x3D;a&#x2F;2（对于无符号数是逻辑右移）</p>
+<p>算数移位指令 (有符号）<br>    SAL 向左移动一位 最左的数为CF位，且左侧补符号位				例： SAL al，1		al：1000 0001——-&gt; 0000 0010  CF位&#x3D;1<br>    SAR 向右移动一位 最右为CF位 ，且左侧补符号位(即补左侧的位） 		例： SAR al，1		al：1000 0001——-&gt; 1100 0000  CF位&#x3D;1<br>逻辑移位指令 （无符号)<br>    &lt;&lt;左移   SHL   逻辑左移指针  									例： SHL al，1		al：1000 0001——-&gt; 0000 0010  CF位&#x3D;1（最高位）<br>    &gt;&gt;右移   SHR 逻辑右移指针	(与算数右移指令不同的是：最左侧的 补0 ）	例：SHR al，1		al：1000 0001——-&gt; 0100 0000 CF位&#x3D;1（最低位）<br>        和上述不同的是 右移时最高位从补符号位改成补0</p>
+<p>循环移位指令<br>     ROL 循环左移指令	左侧的最高位拿出来分别放在 CF位 和  最低位		例：ROL al，1   al：1000 0001——&gt; 0000 0011 CF位&#x3D;1（把最高位那个1去做其他的）<br>     ROR 循环右移指令	右侧的最低位拿出来分别放在 CF位 和  最高位		例：ROR al，1   al：1000 0001——&gt; 1100 0000 CF位&#x3D;1（把最低位那个1去做其他的）<br>带进位的循环移位指令<br>      RCL  （左)	—-它俩的操作是把 符号位CF也加入到循环当中去			例：RCL al,1   CF&#x3D;1   al：1000 0010<br>                                                                CF&#x3D;1 1000 0010——&gt; CF&#x3D;1 0000 0101</p>
+<pre><code> RCR   (右)		----（把CF位 放在需要操作的数的左侧，当成一个整体去循环）      RCR al,1   CF=1   al：1000 0010
+                                                            CF=1 1000 0010------&gt; CF=0 1100 0001
+</code></pre>
+<p>!  –是  反  的意思</p>
+<p>~  –这个是  非  的意思</p>
+<blockquote>
+<blockquote>
+<p>右移   无符号  SHR<br>               有符号  SAR<br>—–编译器是怎么识别是用SHR 还是SAR呢？<br>    如果操作数被定义为无符号类型，如 unsigned int 等，通常会倾向于使用SHR指令，若操作数是有符号类型，如 int 等，编译器可能会选择SAR指令。<br>    若操作数是有符号类型，如 int 等，编译器可能会选择SAR指令，以确保符号位在移位过程中得到正确处理。<br>&lt;&lt;左移   SHL</p>
+</blockquote>
+</blockquote>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/03/26/C/4.%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4/" data-id="cm8q0yzkb0000mwv82f6acmbo" data-title="4.移位指令" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/10/13/hello-world/" class="article-date">
@@ -363,10 +373,6 @@ void *mallce(size-t size)		这里返回的是void*类型  要强制转型				这
           </li>
         
           <li>
-            <a href="/2025/03/26/C/4.%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4/">(no title)</a>
-          </li>
-        
-          <li>
             <a href="/2025/03/26/C/">C</a>
           </li>
         
@@ -376,6 +382,10 @@ void *mallce(size-t size)		这里返回的是void*类型  要强制转型				这
         
           <li>
             <a href="/2025/03/26/C/3.2%E6%8C%87%E9%92%88%E7%89%B9%E6%80%A7/">3.1指针特性</a>
+          </li>
+        
+          <li>
+            <a href="/2025/03/26/C/4.%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4/">4.移位指令</a>
           </li>
         
       </ul>
