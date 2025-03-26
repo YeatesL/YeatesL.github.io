@@ -69,38 +69,6 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-C/5.2内存分配" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/03/26/C/5.2%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" class="article-date">
-  <time class="dt-published" datetime="2025-03-26T15:09:52.368Z" itemprop="datePublished">2025-03-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>&#x2F;*  –图片  5.2<br><img src="/" alt="5.2内存分配.jpg"><br>解决方法：<br>    &#x2F;&#x2F;#if !define(zzz)<br>    &#x2F;&#x2F;#define zzz<br>    如果上面的没有定义  ，那下面的就定义  *&#x2F;   编译器会生成  （复制（））<br>    malloc  分配内存   任何类型的指针<br>    void <em>mallce(size-t size)		这里返回的是void</em>类型  要强制转型				这里的 - 是错的  （杠打不出来……）<br>malloc 中的东西  存放在堆里  用完要及时清除  否者要出事。。</p>
-<p>int* ptr&#x3D;(int*)malloc(sizeof(int)*128);<br>——申请完内存要进行判断，看看是否申请成功——–<br>if(ptr&#x3D;NULL)<br>{<br>    return 0;<br>}<br>&#x2F;&#x2F;初始化分配到内存空间<br>memset(ptr,0,sizeof(int)*128)<br>*ptr&#x3D;1;		&#x2F;&#x2F;使用指针<br>free(ptr);		&#x2F;&#x2F;使用完毕，释放申请的堆空间<br>ptr &#x3D; NULL;	&#x2F;&#x2F;将指针设置为NULL,方便下次使用</p>
-<p>fopen函数		打开函数<br>fseek函数		设置指针指向文件声明位置<br>ftell函数		判断文件右多大<br>fclose函数		关闭文件<br>fread<br>fwrite</p>
-<p>5.3  —1<br><img src="/" alt="5.3.jpg"><br>    起始地址不一样，但内容一样<br>    空白区域  断开的地方大小 不一样<br>    硬盘中留的空白区域比较小，，内存上留的空白区域比较大  （数据大多数一样）<br>     .exe .die .sys  都是4d5a 开头的    （这是操作系统上的可执行文件）</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/C/5.2%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" data-id="cm8q2djki00004sv86prk1xo5" data-title="" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
     <article id="post-C" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/03/26/C/" class="article-date">
@@ -273,6 +241,48 @@
 
 
   
+    <article id="post-C/5.2内存分配" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/26/C/5.2%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" class="article-date">
+  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/03/26/C/5.2%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">5.2内存分配</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>&#x2F;*  –图片  5.2<br><img src="/" alt="5.2内存分配.jpg"><br>解决方法：<br>    &#x2F;&#x2F;#if !define(zzz)<br>    &#x2F;&#x2F;#define zzz<br>    如果上面的没有定义  ，那下面的就定义  *&#x2F;   编译器会生成  （复制（））<br>    malloc  分配内存   任何类型的指针<br>    void <em>mallce(size-t size)		这里返回的是void</em>类型  要强制转型				这里的 - 是错的  （杠打不出来……）<br>malloc 中的东西  存放在堆里  用完要及时清除  否者要出事。。</p>
+<p>int* ptr&#x3D;(int*)malloc(sizeof(int)*128);<br>——申请完内存要进行判断，看看是否申请成功——–<br>if(ptr&#x3D;NULL)<br>{<br>    return 0;<br>}<br>&#x2F;&#x2F;初始化分配到内存空间<br>memset(ptr,0,sizeof(int)*128)<br>*ptr&#x3D;1;		&#x2F;&#x2F;使用指针<br>free(ptr);		&#x2F;&#x2F;使用完毕，释放申请的堆空间<br>ptr &#x3D; NULL;	&#x2F;&#x2F;将指针设置为NULL,方便下次使用</p>
+<p>fopen函数		打开函数<br>fseek函数		设置指针指向文件声明位置<br>ftell函数		判断文件右多大<br>fclose函数		关闭文件<br>fread<br>fwrite</p>
+<p>5.3  —1<br><img src="/" alt="5.3.jpg"><br>    起始地址不一样，但内容一样<br>    空白区域  断开的地方大小 不一样<br>    硬盘中留的空白区域比较小，，内存上留的空白区域比较大  （数据大多数一样）<br>     .exe .die .sys  都是4d5a 开头的    （这是操作系统上的可执行文件）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/03/26/C/5.2%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" data-id="cm8q2djki00004sv86prk1xo5" data-title="5.2内存分配" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-C/5.1内存分配" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2025/03/26/C/5.1%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" class="article-date">
@@ -394,10 +404,6 @@
       <ul>
         
           <li>
-            <a href="/2025/03/26/C/5.2%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">(no title)</a>
-          </li>
-        
-          <li>
             <a href="/2025/03/26/C/">C</a>
           </li>
         
@@ -411,6 +417,10 @@
         
           <li>
             <a href="/2025/03/26/C/4.%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4/">4.移位指令</a>
+          </li>
+        
+          <li>
+            <a href="/2025/03/26/C/5.2%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">5.2内存分配</a>
           </li>
         
       </ul>
