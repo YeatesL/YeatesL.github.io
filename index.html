@@ -322,6 +322,110 @@
 
 
   
+    <article id="post-C/6.1PE" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/26/C/6.1PE/" class="article-date">
+  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/03/26/C/6.1PE/">6.1PE</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <hr>
+<p>PE 结构是分节的<br>    原因：  1.节省硬盘空间<br>（0x32	虚拟地址空间  4gb）<br>硬盘对齐	—-<br>内存对齐	—-<br>6.2——磁盘文件与内存映像结构图———<br>DOS头:<br>WORD  e_magic;      &#x2F;&#x2F;5A4D<br>DWORD	e_lfanew;		&#x2F;&#x2F;基本上是第三行最后的4个字节   从右往左数</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/03/26/C/6.1PE/" data-id="cm8q3c6yt0000ocv82mx77432" data-title="6.1PE" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-C/6.2PE头" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/26/C/6.2PE%E5%A4%B4/" class="article-date">
+  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/03/26/C/6.2PE%E5%A4%B4/">6.2PE</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>1.DOC头<br>    WORD   e_magic   —  “MZ标准”用于判断是否为可执行文件。<br>    DWORD  e_lfanew   —  PE头相对于文件偏，用于定位PE文件<br>2.标准PE头<br>    WORD	Machine；		——		程序运行的CPU型号：  0x 00  任何处理器<br>    WORD	NumberOfSection;	—-	文件中存在的节的总数，如果要新增节或合并节，就要修改这个值<br>    &#x2F;&#x2F;DWORD TineDateStamp		&#x2F;&#x2F;时间戳：文件的创造时间（和操作系统的创造时间无关），编译器填写的<br>    &#x2F;&#x2F;DWORD PointerToSymbolTable；<br>    &#x2F;&#x2F;DWORD	NumberOfSymbols；<br>    WORD	SizeOfOptionalHeader;—-	 可选PE头的大小，32位PE文件默认E0h，64位PE文件默认为F0h	大小可以自定义<br>    WORD	Characteristics			 每个位有不同的含义，可执行文件值为10F  即 0 1 2 3 8 位置为1<br>3.可选PE头:<br>    WORD	Magic;		——		说明文件类型：10B 32位下的PE文件    20B  64位下的PE文件<br>    BYTE		MajorLinkerVersion；<br>    BYTE		MinorLinkerVersion；<br>    DWORD	SizeOfCodde;			&#x2F;&#x2F;所有代码节的和，必须是FileAlignment的整数倍  编译器填的（没用）<br>    DWORD	SizeOfInitializedDate；		&#x2F;&#x2F;已初始化数据大小的和，	必须是FileAlignment的整数倍  编译器填的（没用）<br>    DWORD	SizeOfUninitializedDate；		&#x2F;&#x2F;未初始化数据大小的和，	必须是FileAlignment的整数倍  编译器填的（没用）<br>    DWORD	AddressOfEntrypoint	；		程序入口<br>                        ——（基地址+OEP才是程序的入口）——–</p>
+<pre><code>DWORD	BaseOfCode；			//代码开始的基址，编译器填的（没用）
+DWORD	BaseOfDate；			//数据开始的基址，编译器填的（没用）
+DWORD	ImageBase；	-----		内存镜像基址----------
+DWORD	SectionAlignment;	-----		内存对齐
+DWORD	FileAlignment;		------	文件对齐
+WORD	MajorOperatingSystemVersion;
+WORD	MinorOperatinnSystemVersion;
+WORD	MajorImageVersion;
+WORD	MinorImageVersion;
+WORD	MajorSubsystemVersion;
+WORD	MinorSubsystemVersion;
+DWORD	Win32VersionValue;
+DWORD	SizeOfImage;	----		内存中整个	PE文件的映射的尺寸，可以比实际的值大，但必须SectionAlignment的整数倍 
+DWORD	SizeOfHeaders;	----		所有头+节表按照文件对齐的大小，否者加载会出错
+DWORD	CheckSum；			校验和，一些系统文件的要求，用于判断文件是否被修改
+WORD	Subsystem;
+WORD	DllCharacteristics;
+DWORD	SizeOfStackReserve;			初始化时保留的堆栈大小
+DWORD	SizeOfStackCommit;			初始化时实际提交的大小
+DWORD	SizeOfHeapReserve;			初始化时保留的堆大小
+DWORD	SizeOfHeapCommit			初始化时实践提交的大小
+DWORD	LoaderFlage;
+DWORD	NumberOfRvaAndSizes;		目录项数目
+</code></pre>
+<p>一般程序都是从40000开始<br>exe文件是由一堆PE文件组成的</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/03/26/C/6.2PE%E5%A4%B4/" data-id="cm8q3c6yv0001ocv85yok81ka" data-title="6.2PE" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
     <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
     <a href="/2024/10/13/hello-world/" class="article-date">
