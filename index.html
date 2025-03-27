@@ -131,7 +131,11 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>（加减的时候要砍<em>）<br>例<br>char</em>  类型  是把值取出来，然后把取出来的值当成地址，再次取值<br>若是char** 类型   （在上面的基础上）再次把取出来的值当成地址，再次取值<br>（以此类推）<br>char* p<br><em>p&#x3D;&#x3D;<em>（p+0）&#x3D;&#x3D;p[0]<br>char</em></em> p<br><em>（</em>（p+2）+1）&#x3D;&#x3D;p[2][1]<br>char*** p<br><em>（</em>（*（p+1）+2）+3）&#x3D;&#x3D;p[1][2][3]</p>
-<p>char** p		&#x2F;&#x2F;p为char<strong>类型		<em>p为char</em>类型		<strong>p为char类型<br><em>（</em>（p+1）+1）  &#x2F;&#x2F; p为char**  p+1为char</strong>  四字节<br>（p+1）p为char</strong>，+1时要砍<em>，后为char</em> 为四字节 &#x2F;&#x2F;所以（p+1）中的+1实际上是加上四字节.<br>  (<em>(p+1）+1)   <em>(p+1)为char</em> 类型，+1时要砍</em>，后为char类型，为一字节 &#x2F;&#x2F;所以(*(p+1）+1) 中的后一个+1实际上为加上一字节。</p>
+<pre><code>char** p		p为char(*)类型	(*)p为char*类型	(**)p为char类型
+*(*(p+1)+1)   p为char**  p+1为char**  四字节
+（p+1）p为char**，+1时要砍*，后为char* 为四字节 //所以（p+1）中的+1实际上是加上四字节.
+  (*(p+1）+1)   *(p+1)为char* 类型，+1时要砍*，后为char类型，为一字节 //所以(*(p+1）+1) 中的后一个+1实际上为加上一字节。
+</code></pre>
 <p>int i&#x3D;100;		&#x2F;&#x2F;把值存在i里<br>int* p&#x3D;&i;		&#x2F;&#x2F;lea  取i的地址存在p里<br>printf(“%d\n”, p);	&#x2F;&#x2F;实际上是i的地址<br>printf(“%d\n”, *p);	&#x2F;&#x2F;取的100（p里存着的i地址里面的值）</p>
 <p>&#x2F;&#x2F;指针 *<br>{<br>结构体指针		x—&gt;结构体（x里存得地址，地址指向的结构体）<br>指针的指针		x—&gt;指针	 （x里存得地址，地址指向的指针）<br>指针数组		x—&gt;数组 	 （x里存得地址，地址指向的数组）<br>}<br>&#x2F;&#x2F;指针函数 是函数  本质是返回值是 指针。</p>
 <p>int（<em>px）[5]    &#x2F;&#x2F;<em>px  int[5]<br>    ++  相当于</em>px砍掉</em>，相当于int[5] (五个int）也就是长度是五个int 也就是 4*5&#x3D;20</p>
@@ -176,9 +180,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>指针特性<br>    它是一个类型，不过是一个前面带<em>的类型<br>    在x86架构中 宽度为四字节<br>    在做加加减减运算时，要砍掉一个</em>来确定是加几减几(可与整数相加减)<br>    指针可以比较大小</p>
-<pre><code>存储：小段存储，高位在后 低位在前
-</code></pre>
+        <p>指针特性<br>    它是一个类型，不过是一个前面带<em>的类型<br>    在x86架构中 宽度为四字节<br>    在做加加减减运算时，要砍掉一个</em>来确定是加几减几(可与整数相加减)<br>    指针可以比较大小<br>    存储：小段存储，高位在后 低位在前</p>
 
       
     </div>
@@ -218,13 +220,7 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>在C语言中，可以使用移位运算符来实现移位操作。<br>    such：a&lt;&lt;1表示将变量a的值逻辑左移一位，相当于a&#x3D;a*2；<br>          a&gt;&gt;1表示将a的值算数右移一位，相当于a&#x3D;a&#x2F;2（对于无符号数是逻辑右移）</p>
-<p>算数移位指令 (有符号）<br>    SAL 向左移动一位 最左的数为CF位，且左侧补符号位			例： SAL al，1	al：1000 0001——-&gt; 0000 0010  CF位&#x3D;1<br>    SAR 向右移动一位 最右为CF位 ，且左侧补符号位(即补左侧的位） 		例： SAR al，1	al：1000 0001——-&gt; 1100 0000  CF位&#x3D;1<br>逻辑移位指令 （无符号)<br>    &lt;&lt;左移   SHL   逻辑左移指针  							例： SHL al，1	al：1000 0001——-&gt; 0000 0010  CF位&#x3D;1（最高位）<br>    &gt;&gt;右移   SHR 逻辑右移指针	(与算数右移指令不同的是：最左侧的 补0 ）	例：SHR al，1	al：1000 0001——-&gt; 0100 0000 CF位&#x3D;1（最低位）<br>        和上述不同的是 右移时最高位从补符号位改成补0<br>循环移位指令<br>     ROL 循环左移指令	左侧的最高位拿出来分别放在 CF位 和  最低位		例：ROL al，1   al：1000 0001——&gt; 0000 0011 CF位&#x3D;1（把最高位那个1去做其他的）<br>     ROR 循环右移指令	右侧的最低位拿出来分别放在 CF位 和  最高位		例：ROR al，1   al：1000 0001——&gt; 1100 0000 CF位&#x3D;1（把最低位那个1去做其他的）<br>带进位的循环移位指令<br>      RCL  （左)	—-它俩的操作是把 符号位CF也加入到循环当中去		例：RCL al,1   CF&#x3D;1   al：1000 0010<br>                                        CF&#x3D;1 1000 0010——&gt; CF&#x3D;1 0000 0101<br>     RCR   (右)		—-（把CF位 放在需要操作的数的左侧，当成一个整体去循环）      RCR al,1   CF&#x3D;1   al：1000 0010<br>                                        CF&#x3D;1 1000 0010——&gt; CF&#x3D;0 1100 0001<br>!  –是  反  的意思</p>
-<p>~  –这个是  非  的意思</p>
-<blockquote>
-<blockquote>
-<p>右移   无符号  SHR<br>               有符号  SAR<br>—–编译器是怎么识别是用SHR 还是SAR呢？<br>    如果操作数被定义为无符号类型，如 unsigned int 等，通常会倾向于使用SHR指令，若操作数是有符号类型，如 int 等，编译器可能会选择SAR指令。<br>    若操作数是有符号类型，如 int 等，编译器可能会选择SAR指令，以确保符号位在移位过程中得到正确处理。<br>&lt;&lt;左移   SHL</p>
-</blockquote>
-</blockquote>
+<p>算数移位指令 (有符号）<br>    SAL 向左移动一位 最左的数为CF位，且左侧补符号位			例： SAL al，1	al：1000 0001——-&gt; 0000 0010  CF位&#x3D;1<br>    SAR 向右移动一位 最右为CF位 ，且左侧补符号位(即补左侧的位） 		例： SAR al，1	al：1000 0001——-&gt; 1100 0000  CF位&#x3D;1<br>逻辑移位指令 （无符号)<br>    &lt;&lt;左移   SHL   逻辑左移指针  							例： SHL al，1	al：1000 0001——-&gt; 0000 0010  CF位&#x3D;1（最高位）<br>    &gt;&gt;右移   SHR 逻辑右移指针	(与算数右移指令不同的是：最左侧的 补0 ）	例：SHR al，1	al：1000 0001——-&gt; 0100 0000 CF位&#x3D;1（最低位）<br>        和上述不同的是 右移时最高位从补符号位改成补0<br>循环移位指令<br>     ROL 循环左移指令	左侧的最高位拿出来分别放在 CF位 和  最低位		例：ROL al，1   al：1000 0001——&gt; 0000 0011 CF位&#x3D;1（把最高位那个1去做其他的）<br>     ROR 循环右移指令	右侧的最低位拿出来分别放在 CF位 和  最高位		例：ROR al，1   al：1000 0001——&gt; 1100 0000 CF位&#x3D;1（把最低位那个1去做其他的）<br>带进位的循环移位指令<br>      RCL  （左)	—-它俩的操作是把 符号位CF也加入到循环当中去		例：RCL al,1   CF&#x3D;1   al：1000 0010<br>                                        CF&#x3D;1 1000 0010——&gt; CF&#x3D;1 0000 0101<br>     RCR   (右)		—-（把CF位 放在需要操作的数的左侧，当成一个整体去循环）      RCR al,1   CF&#x3D;1   al：1000 0010<br>                                    CF&#x3D;1 1000 0010——&gt; CF&#x3D;0 1100 0001<br> !  –是  反  的意思<br> ~–这个是  非  的意思<br> &#x2F;&gt;&gt;右移   无符号  SHR<br>    有符号  SAR<br>—–编译器是怎么识别是用SHR 还是SAR呢？<br>    如果操作数被定义为无符号类型，如 unsigned int 等，通常会倾向于使用SHR指令，若操作数是有符号类型，如 int 等，编译器可能会选择SAR指令。<br>    若操作数是有符号类型，如 int 等，编译器可能会选择SAR指令，以确保符号位在移位过程中得到正确处理。<br> &#x2F;&lt;&lt;左移   SHL</p>
 
       
     </div>
@@ -384,31 +380,7 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>1.DOC头<br>    WORD   e_magic   —  “MZ标准”用于判断是否为可执行文件。<br>    DWORD  e_lfanew   —  PE头相对于文件偏，用于定位PE文件<br>2.标准PE头<br>    WORD	Machine；		——		程序运行的CPU型号：  0x 00  任何处理器<br>    WORD	NumberOfSection;	—-	文件中存在的节的总数，如果要新增节或合并节，就要修改这个值<br>    &#x2F;&#x2F;DWORD TineDateStamp		&#x2F;&#x2F;时间戳：文件的创造时间（和操作系统的创造时间无关），编译器填写的<br>    &#x2F;&#x2F;DWORD PointerToSymbolTable；<br>    &#x2F;&#x2F;DWORD	NumberOfSymbols；<br>    WORD	SizeOfOptionalHeader;—-	 可选PE头的大小，32位PE文件默认E0h，64位PE文件默认为F0h	大小可以自定义<br>    WORD	Characteristics			 每个位有不同的含义，可执行文件值为10F  即 0 1 2 3 8 位置为1<br>3.可选PE头:<br>    WORD	Magic;		——		说明文件类型：10B 32位下的PE文件    20B  64位下的PE文件<br>    BYTE		MajorLinkerVersion；<br>    BYTE		MinorLinkerVersion；<br>    DWORD	SizeOfCodde;			&#x2F;&#x2F;所有代码节的和，必须是FileAlignment的整数倍  编译器填的（没用）<br>    DWORD	SizeOfInitializedDate；		&#x2F;&#x2F;已初始化数据大小的和，	必须是FileAlignment的整数倍  编译器填的（没用）<br>    DWORD	SizeOfUninitializedDate；		&#x2F;&#x2F;未初始化数据大小的和，	必须是FileAlignment的整数倍  编译器填的（没用）<br>    DWORD	AddressOfEntrypoint	；		程序入口<br>                        ——（基地址+OEP才是程序的入口）——–</p>
-<pre><code>DWORD	BaseOfCode；			//代码开始的基址，编译器填的（没用）
-DWORD	BaseOfDate；			//数据开始的基址，编译器填的（没用）
-DWORD	ImageBase；	-----		内存镜像基址----------
-DWORD	SectionAlignment;	-----		内存对齐
-DWORD	FileAlignment;		------	文件对齐
-WORD	MajorOperatingSystemVersion;
-WORD	MinorOperatinnSystemVersion;
-WORD	MajorImageVersion;
-WORD	MinorImageVersion;
-WORD	MajorSubsystemVersion;
-WORD	MinorSubsystemVersion;
-DWORD	Win32VersionValue;
-DWORD	SizeOfImage;	----		内存中整个   PE文件的映射的尺寸，可以比实际的值大，但必须SectionAlignment的整数倍 
-DWORD	SizeOfHeaders;	----		所有头+节表按照文件对齐的大小，否者加载会出错
-DWORD	CheckSum；			校验和，一些系统文件的要求，用于判断文件是否被修改
-WORD	Subsystem;
-WORD	DllCharacteristics;
-DWORD	SizeOfStackReserve;			初始化时保留的堆栈大小
-DWORD	SizeOfStackCommit;			初始化时实际提交的大小
-DWORD	SizeOfHeapReserve;			初始化时保留的堆大小
-DWORD	SizeOfHeapCommit			初始化时实践提交的大小
-DWORD	LoaderFlage;
-DWORD	NumberOfRvaAndSizes;		目录项数目
-</code></pre>
+        <p>1.DOC头<br>    WORD   e_magic   —  “MZ标准”用于判断是否为可执行文件。<br>    DWORD  e_lfanew   —  PE头相对于文件偏，用于定位PE文件<br>2.标准PE头<br>    WORD	Machine；		——		程序运行的CPU型号：  0x 00  任何处理器<br>    WORD	NumberOfSection;	—-	文件中存在的节的总数，如果要新增节或合并节，就要修改这个值<br>    &#x2F;&#x2F;DWORD TineDateStamp		&#x2F;&#x2F;时间戳：文件的创造时间（和操作系统的创造时间无关），编译器填写的<br>    &#x2F;&#x2F;DWORD PointerToSymbolTable；<br>    &#x2F;&#x2F;DWORD	NumberOfSymbols；<br>    WORD	SizeOfOptionalHeader;—-	 可选PE头的大小，32位PE文件默认E0h，64位PE文件默认为F0h	大小可以自定义<br>    WORD	Characteristics			 每个位有不同的含义，可执行文件值为10F  即 0 1 2 3 8 位置为1<br>3.可选PE头:<br>    WORD	Magic;		——		说明文件类型：10B 32位下的PE文件    20B  64位下的PE文件<br>    BYTE		MajorLinkerVersion；<br>    BYTE		MinorLinkerVersion；<br>    DWORD	SizeOfCodde;			&#x2F;&#x2F;所有代码节的和，必须是FileAlignment的整数倍  编译器填的（没用）<br>    DWORD	SizeOfInitializedDate；		&#x2F;&#x2F;已初始化数据大小的和，	必须是FileAlignment的整数倍  编译器填的（没用）<br>    DWORD	SizeOfUninitializedDate；		&#x2F;&#x2F;未初始化数据大小的和，	必须是FileAlignment的整数倍  编译器填的（没用）<br>    DWORD	AddressOfEntrypoint	；		程序入口<br>                        ——（基地址+OEP才是程序的入口）——–<br>    DWORD	BaseOfCode；			&#x2F;&#x2F;代码开始的基址，编译器填的（没用）<br>    DWORD	BaseOfDate；			&#x2F;&#x2F;数据开始的基址，编译器填的（没用）<br>    DWORD	ImageBase；	—–		内存镜像基址———-<br>    DWORD	SectionAlignment;	—–		内存对齐<br>    DWORD	FileAlignment;		——	文件对齐<br>    WORD	MajorOperatingSystemVersion;<br>    WORD	MinorOperatinnSystemVersion;<br>    WORD	MajorImageVersion;<br>    WORD	MinorImageVersion;<br>    WORD	MajorSubsystemVersion;<br>    WORD	MinorSubsystemVersion;<br>    DWORD	Win32VersionValue;<br>    DWORD	SizeOfImage;	—-	内存中整个   PE文件的映射的尺寸，可以比实际的值大，但必须SectionAlignment的整数倍<br>    DWORD	SizeOfHeaders;	—-		所有头+节表按照文件对齐的大小，否者加载会出错<br>    DWORD	CheckSum；			校验和，一些系统文件的要求，用于判断文件是否被修改<br>    WORD	Subsystem;<br>    WORD	DllCharacteristics;<br>    DWORD	SizeOfStackReserve;			初始化时保留的堆栈大小<br>    DWORD	SizeOfStackCommit;			初始化时实际提交的大小<br>    DWORD	SizeOfHeapReserve;			初始化时保留的堆大小<br>    DWORD	SizeOfHeapCommit			初始化时实践提交的大小<br>    DWORD	LoaderFlage;<br>    DWORD	NumberOfRvaAndSizes;		目录项数目</p>
 <p>一般程序都是从40000开始<br>exe文件是由一堆PE文件组成的</p>
 
       
@@ -426,10 +398,10 @@ DWORD	NumberOfRvaAndSizes;		目录项数目
 
 
   
-    <article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-C/10.宏定义" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/10/13/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2024-10-13T12:35:44.399Z" itemprop="datePublished">2024-10-13</time>
+    <a href="/2025/03/26/C/10.%E5%AE%8F%E5%AE%9A%E4%B9%89/" class="article-date">
+  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
 </a>
     
   </div>
@@ -440,7 +412,7 @@ DWORD	NumberOfRvaAndSizes;		目录项数目
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2024/10/13/hello-world/">Hello World</a>
+      <a class="p-name article-title" href="/2025/03/26/C/10.%E5%AE%8F%E5%AE%9A%E4%B9%89/">10.宏定义</a>
     </h1>
   
 
@@ -448,24 +420,58 @@ DWORD	NumberOfRvaAndSizes;		目录项数目
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <p> 宏定义<br>#define PI 3		&#x2F;&#x2F;即后边出现的PI，在计算机编译的时候，会替换成3<br>#define S(a,b) a&gt;b?a:b		&#x2F;&#x2F;num&#x3D;S(m,n),即可以比较m,n的大小</p>
+<p>条件编译命令<br> #ifdef BUUG ok<br>int main()<br>{<br> #ifdef BUUG<br>    printf(“yes\n”);		&#x2F;&#x2F;如果BUUG被定义<br> #else<br>    printf(“no\n”):		&#x2F;&#x2F;如果BUUG没有被定义<br> #endif<br>    return 0;</p>
+<p> #ifdef BUUG<br>    程序段1		&#x2F;&#x2F;编译被 #define命令编译过 654****** 程序段1，否者<br> #else<br>    程序段2<br> #endif</p>
+<p> #ifdef BUUG		&#x2F;&#x2F;若BUUG未被#define命令定义，则对程序段1进行编译，否则对程序段2进行编译。<br>    程序段1			<br> #else<br>    程序段2<br> #endif</p>
+<p> #define R 1<br> #if R<br>    程序段1		&#x2F;&#x2F;判断常量表达式R的值，当R的值为真（非0），则对程序段1进行编译，否则对程序段2进行编译<br> #else<br>    程序段2<br> #endif</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/13/hello-world/" data-id="cm27mehgy0000nov8hrms8dl4" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/03/26/C/10.%E5%AE%8F%E5%AE%9A%E4%B9%89/" data-id="cm8qwo5xu00003kv88ny04m93" data-title="10.宏定义" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-C/11.结构体" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/26/C/11.%E7%BB%93%E6%9E%84%E4%BD%93/" class="article-date">
+  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
+</a>
+    
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/03/26/C/11.%E7%BB%93%E6%9E%84%E4%BD%93/">11.结构体</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>struct xxx			&#x2F;&#x2F;定义一个结构体<br>{<br>    int x;<br>    int y;<br>};<br>}S1,S2;			&#x2F;&#x2F;用结构体定义两个结构体变量S1,S2\</p>
+<p>struct Stu<br>{<br>    int num;<br>    cgar name[20];<br>    char sex;<br>    int age;<br>    float score;<br>}s[30];			&#x2F;&#x2F;定义了有30个变量的结构体数组</p>
+<p>Stu* p;		&#x2F;&#x2F;指针变量*p		指向结构体数组的指针<br>p &#x3D; s;		&#x2F;&#x2F;指针变量p指向结构体数组的首地址</p>
+<p>p-&gt;num;		&#x2F;&#x2F;使用p指向结构体数组的元素</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/03/26/C/11.%E7%BB%93%E6%9E%84%E4%BD%93/" data-id="cm8qwp56r0000ckv845ry5yj2" data-title="11.结构体" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -478,6 +484,11 @@ DWORD	NumberOfRvaAndSizes;		目录项数目
 
   
 
+
+  <nav id="page-nav">
+    
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+  </nav>
 
 </section>
         

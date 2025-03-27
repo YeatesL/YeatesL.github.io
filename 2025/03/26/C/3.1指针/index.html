@@ -14,7 +14,7 @@
 <meta property="og:description" content="（加减的时候要砍）例char  类型  是把值取出来，然后把取出来的值当成地址，再次取值若是char** 类型   （在上面的基础上）再次把取出来的值当成地址，再次取值（以此类推）char* pp&#x3D;&#x3D;（p+0）&#x3D;&#x3D;p[0]char p（（p+2）+1）&#x3D;&#x3D;p[2][1]char*** p（（*（p+1）+2）+3）&#x3D;&#x3D;">
 <meta property="og:locale" content="en_US">
 <meta property="article:published_time" content="2025-03-25T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-26T14:44:02.670Z">
+<meta property="article:modified_time" content="2025-03-27T05:37:49.189Z">
 <meta property="article:author" content="YeatesL">
 <meta name="twitter:card" content="summary">
   
@@ -94,7 +94,11 @@
     <div class="e-content article-entry" itemprop="articleBody">
       
         <p>（加减的时候要砍<em>）<br>例<br>char</em>  类型  是把值取出来，然后把取出来的值当成地址，再次取值<br>若是char** 类型   （在上面的基础上）再次把取出来的值当成地址，再次取值<br>（以此类推）<br>char* p<br><em>p&#x3D;&#x3D;<em>（p+0）&#x3D;&#x3D;p[0]<br>char</em></em> p<br><em>（</em>（p+2）+1）&#x3D;&#x3D;p[2][1]<br>char*** p<br><em>（</em>（*（p+1）+2）+3）&#x3D;&#x3D;p[1][2][3]</p>
-<p>char** p		&#x2F;&#x2F;p为char<strong>类型		<em>p为char</em>类型		<strong>p为char类型<br><em>（</em>（p+1）+1）  &#x2F;&#x2F; p为char**  p+1为char</strong>  四字节<br>（p+1）p为char</strong>，+1时要砍<em>，后为char</em> 为四字节 &#x2F;&#x2F;所以（p+1）中的+1实际上是加上四字节.<br>  (<em>(p+1）+1)   <em>(p+1)为char</em> 类型，+1时要砍</em>，后为char类型，为一字节 &#x2F;&#x2F;所以(*(p+1）+1) 中的后一个+1实际上为加上一字节。</p>
+<pre><code>char** p		p为char(*)类型	(*)p为char*类型	(**)p为char类型
+*(*(p+1)+1)   p为char**  p+1为char**  四字节
+（p+1）p为char**，+1时要砍*，后为char* 为四字节 //所以（p+1）中的+1实际上是加上四字节.
+  (*(p+1）+1)   *(p+1)为char* 类型，+1时要砍*，后为char类型，为一字节 //所以(*(p+1）+1) 中的后一个+1实际上为加上一字节。
+</code></pre>
 <p>int i&#x3D;100;		&#x2F;&#x2F;把值存在i里<br>int* p&#x3D;&i;		&#x2F;&#x2F;lea  取i的地址存在p里<br>printf(“%d\n”, p);	&#x2F;&#x2F;实际上是i的地址<br>printf(“%d\n”, *p);	&#x2F;&#x2F;取的100（p里存着的i地址里面的值）</p>
 <p>&#x2F;&#x2F;指针 *<br>{<br>结构体指针		x—&gt;结构体（x里存得地址，地址指向的结构体）<br>指针的指针		x—&gt;指针	 （x里存得地址，地址指向的指针）<br>指针数组		x—&gt;数组 	 （x里存得地址，地址指向的数组）<br>}<br>&#x2F;&#x2F;指针函数 是函数  本质是返回值是 指针。</p>
 <p>int（<em>px）[5]    &#x2F;&#x2F;<em>px  int[5]<br>    ++  相当于</em>px砍掉</em>，相当于int[5] (五个int）也就是长度是五个int 也就是 4*5&#x3D;20</p>
