@@ -1,0 +1,6 @@
+<hr>
+<h2 id="title-10-宏定义date-2025-03-26tags"><a href="#title-10-宏定义date-2025-03-26tags" class="headerlink" title="title: 10.宏定义date: 2025-03-26tags:"></a>title: 10.宏定义<br>date: 2025-03-26<br>tags:</h2><p> 宏定义<br>#define PI 3		&#x2F;&#x2F;即后边出现的PI，在计算机编译的时候，会替换成3<br>#define S(a,b) a&gt;b?a:b		&#x2F;&#x2F;num&#x3D;S(m,n),即可以比较m,n的大小</p>
+<p>条件编译命令<br> #ifdef BUUG ok<br>int main()<br>{<br> #ifdef BUUG<br>    printf(“yes\n”);		&#x2F;&#x2F;如果BUUG被定义<br> #else<br>    printf(“no\n”):		&#x2F;&#x2F;如果BUUG没有被定义<br> #endif<br>    return 0;</p>
+<p> #ifdef BUUG<br>    程序段1		&#x2F;&#x2F;编译被 #define命令编译过 654****** 程序段1，否者<br> #else<br>    程序段2<br> #endif</p>
+<p> #ifdef BUUG		&#x2F;&#x2F;若BUUG未被#define命令定义，则对程序段1进行编译，否则对程序段2进行编译。<br>    程序段1			<br> #else<br>    程序段2<br> #endif</p>
+<p> #define R 1<br> #if R<br>    程序段1		&#x2F;&#x2F;判断常量表达式R的值，当R的值为真（非0），则对程序段1进行编译，否则对程序段2进行编译<br> #else<br>    程序段2<br> #endif</p>

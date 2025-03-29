@@ -1,0 +1,18 @@
+<hr>
+<h2 id="title-5-2内存分配date-2025-03-26tags"><a href="#title-5-2内存分配date-2025-03-26tags" class="headerlink" title="title: 5.2内存分配date: 2025-03-26tags:"></a>title: 5.2内存分配<br>date: 2025-03-26<br>tags:</h2><p>&#x2F;*  –图片  5.2<br><img src="F:\Blog\public\2025\03\26\C\5.2内存分配" alt="5.2内存分配.jpg"><br>解决方法：</p>
+<pre><code>//#if !define(zzz)
+//#define zzz
+如果上面的没有定义  ，那下面的就定义  */   编译器会生成  （复制（））
+malloc  分配内存   任何类型的指针 
+void *mallce(size-t size)		这里返回的是void*类型  要强制转型	//这里的 - 是错的  （杠打不出来......）
+malloc 中的东西  存放在堆里  用完要及时清除  否者要出事。。
+</code></pre>
+<p>int* ptr&#x3D;(int*)malloc(sizeof(int)*128);<br>——申请完内存要进行判断，看看是否申请成功——–<br>if(ptr&#x3D;NULL)<br>{<br>    return 0;<br>}<br>&#x2F;&#x2F;初始化分配到内存空间<br>memset(ptr,0,sizeof(int)*128)<br>*ptr&#x3D;1;		&#x2F;&#x2F;使用指针<br>free(ptr);		&#x2F;&#x2F;使用完毕，释放申请的堆空间<br>ptr &#x3D; NULL;	&#x2F;&#x2F;将指针设置为NULL,方便下次使用</p>
+<pre><code>fopen函数		打开函数
+fseek函数		设置指针指向文件声明位置
+ftell函数		判断文件右多大
+fclose函数		关闭文件
+fread
+fwrite
+</code></pre>
+<p>5.3  —1<br><img src="/" alt="5.3.jpg"><br>    起始地址不一样，但内容一样<br>    空白区域  断开的地方大小 不一样<br>    硬盘中留的空白区域比较小，，内存上留的空白区域比较大  （数据大多数一样）<br>     .exe .die .sys  都是4d5a 开头的    （这是操作系统上的可执行文件）</p>
