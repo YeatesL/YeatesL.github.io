@@ -69,58 +69,10 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-滴水C++/1.1 this指针" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-滴水C++/模板_template" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/1.1%20this%E6%8C%87%E9%92%88/" class="article-date">
-  <time class="dt-published" datetime="2025-03-31T16:00:00.000Z" itemprop="datePublished">2025-04-01</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4%E7%AC%94%E8%AE%B0/">滴水笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/1.1%20this%E6%8C%87%E9%92%88/">this指针</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>this直接做加减，编译器是不允许的，它的作用只有一个  值是当前对象的首地址<br>struct Base	&#x2F;&#x2F;定义结构体<br>{<br>    int x;<br>    int y;<br>};<br>int Max(base* pb)		&#x2F;&#x2F;用结构体指针来比大小<br>{<br>    if(pb-&gt;x &gt; pb-&gt;y)<br>    {<br>        return pb-&gt;x;<br>    }<br>    return pb-&gt;y;		&#x2F;&#x2F;也可用else来进行输出</p>
-<p>}<br>Base base；			&#x2F;&#x2F;则是相当于定义了一个名叫  base 的结构体<br>int x&#x3D; Max(&amp;base);</p>
-<p>———-若是函数在结构体里边，则使用时是	int x &#x3D; base.Max(&amp;base);</p>
-<p>把函数放在结构体里边 的时候， 会传递一个地址	地址是  当前结构体的首地址<br>·		————（在保护现场）的时候  push ecx；	是为了在后续可以正常使用ecx</p>
-<p>&#x2F;*<br>–结构体（指针）用的    pb-&gt;x;<br>–构体对象则是       pb.x&#x3D; —–;<br>–*&#x2F;</p>
-<p>—-封装——<br>    函数在结构体里边		struct （结构体）		结构体——&gt;类<br>对象： 用结构体创造的类型变量的时候，变量就是对象</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/01/%E6%BB%B4%E6%B0%B4C++/1.1%20this%E6%8C%87%E9%92%88/" data-id="cm8va1gte0000a8v80mxl3jvg" data-title="this指针" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-滴水C++/C++继承 构造  拆构函数/C++构造 --重载" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/C++%E6%9E%84%E9%80%A0%20--%E9%87%8D%E8%BD%BD/" class="article-date">
-  <time class="dt-published" datetime="2025-03-31T16:00:00.000Z" itemprop="datePublished">2025-04-01</time>
+    <a href="/2025/04/07/%E6%BB%B4%E6%B0%B4C++/%E6%A8%A1%E6%9D%BF_template/" class="article-date">
+  <time class="dt-published" datetime="2025-04-06T16:00:00.000Z" itemprop="datePublished">2025-04-07</time>
 </a>
     
   <div class="article-category">
@@ -135,7 +87,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/C++%E6%9E%84%E9%80%A0%20--%E9%87%8D%E8%BD%BD/">C++构造 --重载</a>
+      <a class="p-name article-title" href="/2025/04/07/%E6%BB%B4%E6%B0%B4C++/%E6%A8%A1%E6%9D%BF_template/">模板_template</a>
     </h1>
   
 
@@ -143,17 +95,15 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>&#x2F;*构造函数<br>    1.没有返回值，即（void）<br>    2与结构的名字要一样（与类同名）<br>    3.是在创造对象的时候执行的。<br>    4.主要用于初始化数据<br>    5.多个，成为重载<br>    6.编译器不要求必须提供<br>*&#x2F;<br>在开始的时候，对对象进行赋值<br>struct  person<br>{<br>    int age;<br>    int level;<br>&#x2F;&#x2F;———定义了构造函数就要用：&#x2F;&#x2F;person p(1,2)；&#x2F;&#x2F;<br>    &#x2F;&#x2F;构造函数： 				3.是在创造对象的时候执行的。<br>    person(int age,int level)         &#x2F;&#x2F;这个是函数，但又有区别 1.没有返回值，即（void）2.与结构的名字要一样（与类同名）<br>    {<br>        this-&gt;age &#x3D; age;<br>        this-&gt;level &#x3D; level;<br>    }<br>&#x2F;&#x2F;——-多个构造函数  叫重载<br>    person()<br>    {<br>                &#x2F;&#x2F;不想赋值了，可以在写上这个（前提是不能和前面函数的一样），保证了person ()不会报错<br>    }</p>
-<p>&#x2F;&#x2F;——普通成员的—重载<br>&#x2F;&#x2F;——-通过对象的方式，调用方法<br>    viod print()<br>    {<br>        printf(“%d %d”,age,level);<br>    }<br>    viod print(int x)		&#x2F;&#x2F;viod print(char x)<br>    {<br>        printf(“%d %d”,age,level);<br>    }<br>&#x2F;&#x2F;——-C++里允许函数名一样，但要保证参数，类型，个数，不一样就行	—-但返回类型要一样（void，int）</p>
-<p>};<br>int main(	)<br>{<br>    person p(1,2)；		&#x2F;&#x2F;在栈里边分配空间，用完后就是垃圾</p>
-<pre><code>p.print();
-</code></pre>
-<p>}</p>
+        <p>顺序查找（没排序）<br>折半查找（已排序）   找中间的数比较</p>
+<p>位运算 (x+y)&lt;&lt;1  相当于乘以二<br>     （x+y)&gt;&gt;1 相当于除以二</p>
+<p>模板的作用：对于一些不同类型的数，计算机来替我们进行复制，简短任务和代码量<br>          代码的赋值</p>
+<h2 id="template-需要变量的数，替换掉就行了void-sort-T-arr-int-nlength"><a href="#template-需要变量的数，替换掉就行了void-sort-T-arr-int-nlength" class="headerlink" title="template			&#x2F;&#x2F;需要变量的数，替换掉就行了void sort(T arr,int nlength)"></a>template<class T>			&#x2F;&#x2F;需要变量的数，替换掉就行了<br>void sort(T arr,int nlength)</h2><h2 id="templatevoid-sort-T-arr-E-nlength"><a href="#templatevoid-sort-T-arr-E-nlength" class="headerlink" title="template&lt;class T，class E&gt;void sort(T arr,E nlength)"></a>template&lt;class T，class E&gt;<br>void sort(T arr,E nlength)</h2><h2 id="对结构体-类中使用templatestruct-Base-T-x；-T-y-M-a-M-b"><a href="#对结构体-类中使用templatestruct-Base-T-x；-T-y-M-a-M-b" class="headerlink" title="对结构体&#x2F;类中使用template&lt;class T，class M&gt;struct Base{    T x；    T y;    M a;    M b;}"></a>对结构体&#x2F;类中使用<br>template&lt;class T，class M&gt;<br>struct Base<br>{<br>    T x；<br>    T y;<br>    M a;<br>    M b;<br>}</h2><p>编译的时候，汇编看不出是否用了 模板</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/C++%E6%9E%84%E9%80%A0%20--%E9%87%8D%E8%BD%BD/" data-id="cm8vadlty0000b8v80vym5285" data-title="C++构造 --重载" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/04/07/%E6%BB%B4%E6%B0%B4C++/%E6%A8%A1%E6%9D%BF_template/" data-id="cm8vbewqh0001gov8cck95bzr" data-title="模板_template" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -165,10 +115,10 @@
 
 
   
-    <article id="post-滴水C++/C++继承 构造  拆构函数/析构函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-滴水C++/链表+二叉树/二叉树" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/" class="article-date">
-  <time class="dt-published" datetime="2025-03-31T16:00:00.000Z" itemprop="datePublished">2025-04-01</time>
+    <a href="/2025/04/06/%E6%BB%B4%E6%B0%B4C++/%E9%93%BE%E8%A1%A8+%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91/" class="article-date">
+  <time class="dt-published" datetime="2025-04-05T16:00:00.000Z" itemprop="datePublished">2025-04-06</time>
 </a>
     
   <div class="article-category">
@@ -183,7 +133,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/">析构函数</a>
+      <a class="p-name article-title" href="/2025/04/06/%E6%BB%B4%E6%B0%B4C++/%E9%93%BE%E8%A1%A8+%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
     </h1>
   
 
@@ -191,21 +141,22 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>&#x2F;*析构函数：<br>    1. 做收尾的，主要用于清理工作<br>    2.析构函数不允许重载，它只有一个<br>    3.不能带参数<br>    4.不能带返回值<br>    5.编译器不要求必须提供</p>
-<p><em>&#x2F;<br>&#x2F;&#x2F;—-栈  全局变量  堆<br>struct person<br>{<br>    int age;<br>    int level;<br>    char</em> arr;</p>
-<pre><code>person()
-&#123;
-    this-&gt;age = age;
-    this-&gt;level = level;
-    arr= (char*)malloc(1024);		//在堆中申请空间  要自己对堆里的东西释放
-&#125;
+        <p>二叉树：<br>    根<br>    父<br>    子<br>    左<br>    右</p>
+<pre><code>1.良好查询性能
+2.有很好的新增和删除的性能
+3.若左子树不空，则右子树上所有节点的值均小于它根节点的值
+4.若右子树不空，则右子树上所有节点的值均大于它根节点的值
+5.左，右子树也分别为二叉排序树
 </code></pre>
-<p>&#x2F;&#x2F;—–对象不用了，要释放<br>    ~person()<br>    {<br>        free(arr);<br>    }<br>};</p>
+<p>二叉树，双向链表：如何区分<br>    双向链表的地址一个上一个元素的地址，一个下一个元素的地址<br>    二叉树中的两个地址，都是下一个元素的地址</p>
+<p>前序遍历：根左右<br>—-中序遍历：左根右<br>后序遍历：左右根</p>
+<p>&#x2F;*<br>        ::Clear<br>if( pNode!&#x3D; NULL)<br>{<br>    Clear(pNode-&gt;pLeft);<br>    Clear(pNode-&gt;pRight);<br>    delete pNode;				&#x2F;&#x2F;new<br>    pNode &#x3D; NULL;<br>}<br>*&#x2F;</p>
+<p>删除<br>情况一：叶子节点<br>    1.删除改节点<br>    2.将父节点（左或右）指针置NULL<br>情况二：只有一个子树<br>    1.删除该节点<br>    2.将父节点（左或者右）指针指向子树<br>情况三：左右子树都有<br>    1.用右子树最小的节点取代源节点			&#x2F;&#x2F;左找最大替换<br>    2.再递归删除最小节点</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/" data-id="cm8vadltz0001b8v82rpdf9gi" data-title="析构函数" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/04/06/%E6%BB%B4%E6%B0%B4C++/%E9%93%BE%E8%A1%A8+%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91/" data-id="cm8vbewqf0000gov82kig2vfy" data-title="二叉树" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -217,10 +168,10 @@
 
 
   
-    <article id="post-滴水C++/C++继承 构造  拆构函数/继承" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-滴水C++/链表+二叉树/链表" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/%E7%BB%A7%E6%89%BF/" class="article-date">
-  <time class="dt-published" datetime="2025-03-31T16:00:00.000Z" itemprop="datePublished">2025-04-01</time>
+    <a href="/2025/04/06/%E6%BB%B4%E6%B0%B4C++/%E9%93%BE%E8%A1%A8+%E4%BA%8C%E5%8F%89%E6%A0%91/%E9%93%BE%E8%A1%A8/" class="article-date">
+  <time class="dt-published" datetime="2025-04-05T16:00:00.000Z" itemprop="datePublished">2025-04-06</time>
 </a>
     
   <div class="article-category">
@@ -235,7 +186,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/%E7%BB%A7%E6%89%BF/">继承</a>
+      <a class="p-name article-title" href="/2025/04/06/%E6%BB%B4%E6%B0%B4C++/%E9%93%BE%E8%A1%A8+%E4%BA%8C%E5%8F%89%E6%A0%91/%E9%93%BE%E8%A1%A8/">链表知识(小)点</a>
     </h1>
   
 
@@ -243,42 +194,22 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>&#x2F;&#x2F;———继承 本质：—–数据的复制—–<br>&#x2F;&#x2F;怎么用其他函数的成员<br>&#x2F;&#x2F;无变化  能用的原因：同一个指针</p>
-<p>struct  person<br>{<br>    int age;<br>    int sex；<br>};<br>&#x2F;&#x2F;——-当需要应用其他函数的成员时，例：（struct teather:person）	表示需要person函数里的成员<br>struct teather:person<br>{<br>    int level;<br>    int classId;<br>};<br>&#x2F;&#x2F;——-例：（struct student:person)	表示需要person函数里的成员,,,即为–继承–<br>struct student:person<br>{<br>    int code;<br>    int score;<br>};<br>void Test()<br>{<br>    student t;</p>
-<pre><code>t.age = 1;
-t.sex = 2;
-t.code = 3;
-t.score = 4;
+        <p>链表：<br>    头指针——数据 地址-&gt;数据 地址-&gt;数据 地址<br>        &#x2F;&#x2F;头指针指向第一个元素   地址指向 则是下一个数据存的地址</p>
+<pre><code>1.数据分散存储
+2.查询性能没有Vector好
+3.新增与删除的性能好于Vector 		//增加和删除 只需俩地址
 </code></pre>
-<h2 id="int-main-int-argc-char-argv-Tst-return-0"><a href="#int-main-int-argc-char-argv-Tst-return-0" class="headerlink" title="}int main(int argc, char* argv[]){    Tst();    return 0;}"></a>}<br>int main(int argc, char* argv[])<br>{<br>    Tst();<br><br>    return 0;<br>}</h2><p>&#x2F;&#x2F;—–通过指针来访问里面的成员<br>void Test()<br>{<br>    student t;</p>
-<pre><code>t.age = 1;
-t.sex = 2;
-t.code = 3;
-t.score = 4;
-
-student* pt = &amp;t;		//用指针来访问	
-printf(&quot;%d&quot;,pt-&gt;code);
-
-person* pt = &amp;t;		//能这样是因为它（子类对象）包含父类成员----(struct student:person)----
-printf(&quot;%d&quot;,pt-&gt;age);		//父类的指针也可以访问
-printf(&quot;%d&quot;,pt-&gt;code);		//这个是不行的   因为person内没有包含 student函数的东西
-    //但  +1  就能了		因为继承本质就是复制
-</code></pre>
-<h2 id=""><a href="#" class="headerlink" title="}"></a>}</h2><p>struct  person<br>{<br>    int age;<br>    int sex；<br>};<br>struct student:person<br>{<br>    int code;<br>    int score;<br>};<br>———————（—–一般不用——-）<br>&#x2F;&#x2F;用子类指针指向父类对象—-要（强转）<br>oid Test()<br>{<br>    student p;</p>
-<pre><code>p.age = 1;
-p.sex = 2;
-student* pt = (student*)&amp;p;    //强转
-printf(&quot;%d&quot;,pt-&gt;age);
-
-student* pt = (student*)&amp;p;    //不报错，没办法查错，系统会奔溃
-printf(&quot;%d&quot;,pt-&gt;code);
-</code></pre>
-<hr>
+<p>单链表<br>循环链表  	<br>双向链表(两个地址一个存上一个数据的地址，下一个存的下一个数据的地址)</p>
+<p>Vector中的数据连块的<br>但链表是多块的 </p>
+<p>template <class  T_ELE>			&#x2F;&#x2F;模板存储类型  T_ELE  这个类型<br>class LinkedList</p>
+<p>Private:<br>    typedef  struct  _NODE<br>    {<br>        T_ELE  Date<br>        _NODE *pNext;<br>    }NODE,*PNext;</p>
+<p>Private:<br>    PNext m_pList;			&#x2F;&#x2F;链表头指针</p>
+<p>&#x2F;&#x2F;判断是否链表是否有内存泄漏<br>    写大循环—任务管理器看程序的进程的大趋势，是不是曲线稳定，还是成增长趋势.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/%E7%BB%A7%E6%89%BF/" data-id="cm8vadlu20003b8v8hobuhtsg" data-title="继承" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/04/06/%E6%BB%B4%E6%B0%B4C++/%E9%93%BE%E8%A1%A8+%E4%BA%8C%E5%8F%89%E6%A0%91/%E9%93%BE%E8%A1%A8/" data-id="cm8vbewqi0002gov8a1j49bu2" data-title="链表知识(小)点" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -290,10 +221,10 @@ printf(&quot;%d&quot;,pt-&gt;code);
 
 
   
-    <article id="post-滴水C++/C++继承 构造  拆构函数/多层继承" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-滴水C++/引用+友元+运算符重载/引用类型" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/%E5%A4%9A%E5%B1%82%E7%BB%A7%E6%89%BF/" class="article-date">
-  <time class="dt-published" datetime="2025-03-31T16:00:00.000Z" itemprop="datePublished">2025-04-01</time>
+    <a href="/2025/04/05/%E6%BB%B4%E6%B0%B4C++/%E5%BC%95%E7%94%A8+%E5%8F%8B%E5%85%83+%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" class="article-date">
+  <time class="dt-published" datetime="2025-04-04T16:00:00.000Z" itemprop="datePublished">2025-04-05</time>
 </a>
     
   <div class="article-category">
@@ -308,7 +239,7 @@ printf(&quot;%d&quot;,pt-&gt;code);
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/%E5%A4%9A%E5%B1%82%E7%BB%A7%E6%89%BF/">多层继承</a>
+      <a class="p-name article-title" href="/2025/04/05/%E6%BB%B4%E6%B0%B4C++/%E5%BC%95%E7%94%A8+%E5%8F%8B%E5%85%83+%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/">引用类型</a>
     </h1>
   
 
@@ -316,18 +247,107 @@ printf(&quot;%d&quot;,pt-&gt;code);
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>&#x2F;&#x2F;多层继承，即 继承后，再继承<br>struct X<br>{<br>    int a；<br>    int b；<br>}；<br>struct Y:X<br>{<br>    int a；<br>    int d；<br>}；<br>struct Z:Y			struct Z:Y:X	&#x2F;&#x2F;要使用 a 的话，也与下边的一样，要表明是X的a，还是Y的a<br>{<br>    int a；<br>    int f；<br>}；<br>——–&#x2F;&#x2F;即使它们中间的名字有重复 分配空间的时候依然是  24字节<br>void Test()<br>{<br>    Z z;</p>
-<pre><code>z.X::a = 1;		//名字相同时要准确的标出谁的a，是X的还是Y的
-z.Y::a = 3;
-z.Z::a = 6;
+        <p>能组成指针的就可以使用引用：<br>    C++里边的<br>    引用只能赋值一次，不能重新赋值<br>    对象别名<br>    （引用可以理解成是编译器维护的一个指针，但不占用空间）（海哥）<br>    引用可以像指针那样去访问，修改对象的内容，但更加安全</p>
+<p>引用<br>void test(int&amp; x)<br>{<br>    x &#x3D; 1;<br>}<br>int main()<br>{<br>    int a &#x3D; 2;<br>    test(a);<br>}</p>
+<p>指针<br>void test(int* x)<br>{<br>    *x &#x3D; 1;<br>}<br>int main()<br>{<br>    int a &#x3D; 2;<br>    test(&amp;a);<br>}<br>俩都能对x进行赋值<br>引用跟指针在底层上编译完以后看不出任何区别<br>引用编译的时候就是指针，但编译器不允许你这个引用再指向别的地方 </p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/04/05/%E6%BB%B4%E6%B0%B4C++/%E5%BC%95%E7%94%A8+%E5%8F%8B%E5%85%83+%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/" data-id="cm8vb3yc20004awv8f9k08lt2" data-title="引用类型" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-滴水C++/引用+友元+运算符重载/运算符重载" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/04/05/%E6%BB%B4%E6%B0%B4C++/%E5%BC%95%E7%94%A8+%E5%8F%8B%E5%85%83+%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/" class="article-date">
+  <time class="dt-published" datetime="2025-04-04T16:00:00.000Z" itemprop="datePublished">2025-04-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4C-%E7%AC%94%E8%AE%B0/">滴水C++笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/04/05/%E6%BB%B4%E6%B0%B4C++/%E5%BC%95%E7%94%A8+%E5%8F%8B%E5%85%83+%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/">运算符重载</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p> 运算符重载：<br>    运算符重载就是函数替换<br>    .  ::  ?:  sizeof  #  不能重载		&#x2F;&#x2F;b.x不能   ::   三目运算符  # </p>
+<p>赋值  判断：比较大小</p>
+<p>operator</p>
+<p>bool</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/04/05/%E6%BB%B4%E6%B0%B4C++/%E5%BC%95%E7%94%A8+%E5%8F%8B%E5%85%83+%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/" data-id="cm8vb3yc20006awv8h1o0c0ub" data-title="运算符重载" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-滴水C++/引用+友元+运算符重载/友元函数" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/04/05/%E6%BB%B4%E6%B0%B4C++/%E5%BC%95%E7%94%A8+%E5%8F%8B%E5%85%83+%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/%E5%8F%8B%E5%85%83%E5%87%BD%E6%95%B0/" class="article-date">
+  <time class="dt-published" datetime="2025-04-04T16:00:00.000Z" itemprop="datePublished">2025-04-05</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4C-%E7%AC%94%E8%AE%B0/">滴水C++笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/04/05/%E6%BB%B4%E6%B0%B4C++/%E5%BC%95%E7%94%A8+%E5%8F%8B%E5%85%83+%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/%E5%8F%8B%E5%85%83%E5%87%BD%E6%95%B0/">友元函数</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>const 只能读，不能改</p>
+<p>一个函数想访问私有成员的时候，正常情况下是不允许访问的<br>访问办法：<br>把这个函数，声明成那个类的朋友<br>    即：友元函数		（交朋友）<br>    运算符重载的时候，可能用友元<br>    两个类共享数据<br>—友元函数与类的成员函数区别<br>    成员函数有this指针，而友元函数没有this指针<br>    友元函数是不能被继承的</p>
+<p>class person<br>{<br>private:<br>    int x;<br>    int y;<br>public:<br>    person(int x,int y)<br>    {<br>        this-&gt;x &#x3D; x;<br>        this-&gt;y &#x3D; y;<br>    }<br>    &#x2F;&#x2F;声明友元函数<br>    friend void print(const person&amp; refper) ;<br>};<br>void print(const person&amp; refper)<br>{<br>    printf(“%d\n”,refper.x);<br>    printf(“%d\n”,refper.y);<br>}<br>int main()<br>{<br>    person(1,2);<br>    print(p);<br>    return 0;<br>}</p>
+<pre><code>        //友元类   有俩类，一个类中函数想访问另一个类的私有成员，弄个友元类
 </code></pre>
-<p>}<br>&#x2F;&#x2F;它们的反汇编代码一样， 原因就是   继承—–复制</p>
-<p>&#x2F;&#x2F;微软（不建议多重继承）；继承   一个直接父类只有一个</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/%E5%A4%9A%E5%B1%82%E7%BB%A7%E6%89%BF/" data-id="cm8vadlu20004b8v8arkod75y" data-title="多层继承" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/04/05/%E6%BB%B4%E6%B0%B4C++/%E5%BC%95%E7%94%A8+%E5%8F%8B%E5%85%83+%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/%E5%8F%8B%E5%85%83%E5%87%BD%E6%95%B0/" data-id="cm8vb3yc4000bawv8d346cpvs" data-title="友元函数" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -339,14 +359,14 @@ z.Z::a = 6;
 
 
   
-    <article id="post-滴水C语言/C" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-滴水C++/malloc+free+new-delete-Vector/new+delete" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/C/" class="article-date">
-  <time class="dt-published" datetime="2025-03-26T13:46:11.000Z" itemprop="datePublished">2025-03-26</time>
+    <a href="/2025/04/04/%E6%BB%B4%E6%B0%B4C++/malloc+free+new-delete-Vector/new+delete/" class="article-date">
+  <time class="dt-published" datetime="2025-04-03T16:00:00.000Z" itemprop="datePublished">2025-04-04</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4C%E7%AC%94%E8%AE%B0/">滴水C笔记</a>
+    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4C-%E7%AC%94%E8%AE%B0/">滴水C++笔记</a>
   </div>
 
   </div>
@@ -357,7 +377,7 @@ z.Z::a = 6;
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/C/">C</a>
+      <a class="p-name article-title" href="/2025/04/04/%E6%BB%B4%E6%B0%B4C++/malloc+free+new-delete-Vector/new+delete/">new+delete</a>
     </h1>
   
 
@@ -365,159 +385,17 @@ z.Z::a = 6;
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>B站-滴水的相关笔记</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/C/" data-id="cm8v9t454000ih4v87x6n3lcy" data-title="C" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-滴水C语言/11.结构体" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/11.%E7%BB%93%E6%9E%84%E4%BD%93/" class="article-date">
-  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4C%E7%AC%94%E8%AE%B0/">滴水C笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/11.%E7%BB%93%E6%9E%84%E4%BD%93/">11.结构体</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>struct xxx			&#x2F;&#x2F;定义一个结构体<br>{<br>    int x;<br>    int y;<br>};<br>}S1,S2;			&#x2F;&#x2F;用结构体定义两个结构体变量S1,S2\</p>
-<p>struct Stu<br>{<br>    int num;<br>    cgar name[20];<br>    char sex;<br>    int age;<br>    float score;<br>}s[30];			&#x2F;&#x2F;定义了有30个变量的结构体数组</p>
-<p>Stu* p;		&#x2F;&#x2F;指针变量*p	&#x2F;指向结构体数组的指针<br>p &#x3D; s;		&#x2F;&#x2F;指针变量p指向结构体数组的首地址</p>
-<p>p-&gt;num;		&#x2F;&#x2F;使用p指向结构体数组的元素</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/11.%E7%BB%93%E6%9E%84%E4%BD%93/" data-id="cm8v9t44x0000h4v8agif7qxu" data-title="11.结构体" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-滴水C语言/10.宏定义" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/10.%E5%AE%8F%E5%AE%9A%E4%B9%89/" class="article-date">
-  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4C%E7%AC%94%E8%AE%B0/">滴水C笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/10.%E5%AE%8F%E5%AE%9A%E4%B9%89/">10.宏定义</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p> 宏定义<br>#define PI 3		&#x2F;&#x2F;即后边出现的PI，在计算机编译的时候，会替换成3<br>#define S(a,b) a&gt;b?a:b		&#x2F;&#x2F;num&#x3D;S(m,n),即可以比较m,n的大小</p>
-<p>条件编译命令<br> #ifdef BUUG ok<br>int main()<br>{<br> #ifdef BUUG<br>    printf(“yes\n”);		&#x2F;&#x2F;如果BUUG被定义<br> #else<br>    printf(“no\n”):		&#x2F;&#x2F;如果BUUG没有被定义<br> #endif<br>    return 0;</p>
-<p> #ifdef BUUG<br>    程序段1		&#x2F;&#x2F;编译被 #define命令编译过 654****** 程序段1，否者<br> #else<br>    程序段2<br> #endif</p>
-<p> #ifdef BUUG		&#x2F;&#x2F;若BUUG未被#define命令定义，则对程序段1进行编译，否则对程序段2进行编译。<br>    程序段1			<br> #else<br>    程序段2<br> #endif</p>
-<p> #define R 1<br> #if R<br>    程序段1		&#x2F;&#x2F;判断常量表达式R的值，当R的值为真（非0），则对程序段1进行编译，否则对程序段2进行编译<br> #else<br>    程序段2<br> #endif</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/10.%E5%AE%8F%E5%AE%9A%E4%B9%89/" data-id="cm8v9t44z0001h4v8d8yaelzi" data-title="10.宏定义" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-滴水C语言/3.1指针" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/3.1%E6%8C%87%E9%92%88/" class="article-date">
-  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4C%E7%AC%94%E8%AE%B0/">滴水C笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/3.1%E6%8C%87%E9%92%88/">3.1指针</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>（加减的时候要砍<em>）<br>例<br>char</em>  类型  是把值取出来，然后把取出来的值当成地址，再次取值<br>若是char** 类型   （在上面的基础上）再次把取出来的值当成地址，再次取值<br>（以此类推）<br>char* p<br><em>p&#x3D;&#x3D;<em>（p+0）&#x3D;&#x3D;p[0]<br>char</em></em> p<br><em>（</em>（p+2）+1）&#x3D;&#x3D;p[2][1]<br>char*** p<br><em>（</em>（*（p+1）+2）+3）&#x3D;&#x3D;p[1][2][3]</p>
-<pre><code>char** p		p为char(*)类型	(*)p为char*类型	(**)p为char类型
-*(*(p+1)+1)   p为char**  p+1为char**  四字节
-（p+1）p为char**，+1时要砍*，后为char* 为四字节 //所以（p+1）中的+1实际上是加上四字节.
-  (*(p+1）+1)   *(p+1)为char* 类型，+1时要砍*，后为char类型，为一字节 //所以(*(p+1）+1) 中的后一个+1实际上为加上一字节。
+        <p>new:		nh_malloc_dbg		_heap_alloc_dbg	_heap_alloc_base	HeapAlloc<br>delete	free		_free_dbg		_free_base		HeapFree</p>
+<p>malloc	nh_malloc_dbg		_heap_alloc_dbg	_heap_alloc_base	HeapAlloc<br>ffree		_free		_free_dbg		_free_base		HeapFree</p>
+<pre><code>在C++里 new和malloc调用的东西一样				//底层调用一样
 </code></pre>
-<p>int i&#x3D;100;		&#x2F;&#x2F;把值存在i里<br>int* p&#x3D;&i;		&#x2F;&#x2F;lea  取i的地址存在p里<br>printf(“%d\n”, p);	&#x2F;&#x2F;实际上是i的地址<br>printf(“%d\n”, *p);	&#x2F;&#x2F;取的100（p里存着的i地址里面的值）</p>
-<p>&#x2F;&#x2F;指针 *<br>{<br>结构体指针		x—&gt;结构体（x里存得地址，地址指向的结构体）<br>指针的指针		x—&gt;指针	 （x里存得地址，地址指向的指针）<br>指针数组		x—&gt;数组 	 （x里存得地址，地址指向的数组）<br>}<br>&#x2F;&#x2F;指针函数 是函数  本质是返回值是 指针。</p>
-<p>int（<em>px）[5]    &#x2F;&#x2F;<em>px  int[5]<br>    ++  相当于</em>px砍掉</em>，相当于int[5] (五个int）也就是长度是五个int 也就是 4*5&#x3D;20</p>
-<p>int arr[20]&#x3D;{1,2,3,4,5,……….};<br>int (<em>px)[2];<br>px&#x3D;(int (</em>)[2])arr;	&#x2F;&#x2F;取得是arr[0]的地址<br>printf(“%d\n”,<em>(</em>(px));<br>printf(“%d\n”,<em>(</em>(px+0)+0);<br>printf(“%d\n”,<em>(</em>(px+1)+1);	–px[1][1]	&#x2F;&#x2F;px是int(<em>)[2]类型，把</em>砍掉成 int[2]  相当于加了八个字节。4  2 &#x3D;  8	也就是从arr[0]的地址转移到了arr[2]<br>                    &#x2F;&#x2F;把(<em>px+1) 弄完再+1成了数组—&gt;成了int</em>类型，+1 也就是 加上四个字节<br>printf(“%d\n”,<em>(</em>(px+3)+3);	—px[3][3]  	—-&gt; printf出的值 –10<br>  &#x2F;&#x2F;貌似好像会报错…</p>
-<p>px&#x3D;(int (<em>)[2])arr;<br>printf(“%d %d\n”,px,<em>px);	&#x2F;&#x2F;这里px与</em>px值一样，但它俩的类型完全不同<br>            &#x2F;&#x2F;理解:px指向了一个储存了数组首地址的地址，而</em>px就是获取这个地址的值，这个地址的值就是数组首地址的值</p>
-<p>（要带本身字节宽度）<br>&#x2F;&#x2F;二维指针<br>char (<em>p)[2][3]			&#x2F;&#x2F; 正常p的宽度：1</em>2<em>3  （1是因为是char–一字节）<br>printf(“%d\n”,(</em>(<em>(</em>(p+2)+3)+4));   &#x2F;&#x2F;	2<em>6</em>  1<em>3</em>3  +4<em>1<br>                     &#x2F;&#x2F;2</em>(2<em>3)  (1</em>3*3)   [char(1) 乘4]</p>
+<p>int* pi &#x3D; new int(5);		&#x2F;&#x2F;在堆里创建一个int，初始值是5.</p>
+<p>int* i &#x3D; new int[5];		&#x2F;&#x2F;创建了5个int，即数组<br>delete[5] i;			&#x2F;&#x2F;new的时候，多个，那就要加[ ]释放.</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/3.1%E6%8C%87%E9%92%88/" data-id="cm8v9t4500002h4v8ehxre48k" data-title="3.1指针" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/04/04/%E6%BB%B4%E6%B0%B4C++/malloc+free+new-delete-Vector/new+delete/" data-id="cm8vb3yc10001awv8f70g4s39" data-title="new+delete" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -529,14 +407,14 @@ z.Z::a = 6;
 
 
   
-    <article id="post-滴水C语言/3.2指针特性" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-滴水C++/malloc+free+new-delete-Vector/malloc+free" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/3.2%E6%8C%87%E9%92%88%E7%89%B9%E6%80%A7/" class="article-date">
-  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
+    <a href="/2025/04/04/%E6%BB%B4%E6%B0%B4C++/malloc+free+new-delete-Vector/malloc+free/" class="article-date">
+  <time class="dt-published" datetime="2025-04-03T16:00:00.000Z" itemprop="datePublished">2025-04-04</time>
 </a>
     
   <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4C%E7%AC%94%E8%AE%B0/">滴水C笔记</a>
+    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4C-%E7%AC%94%E8%AE%B0/">滴水C++笔记</a>
   </div>
 
   </div>
@@ -547,7 +425,7 @@ z.Z::a = 6;
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/3.2%E6%8C%87%E9%92%88%E7%89%B9%E6%80%A7/">3.2指针特性</a>
+      <a class="p-name article-title" href="/2025/04/04/%E6%BB%B4%E6%B0%B4C++/malloc+free+new-delete-Vector/malloc+free/">malloc+free</a>
     </h1>
   
 
@@ -555,12 +433,108 @@ z.Z::a = 6;
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>指针特性<br>    它是一个类型，不过是一个前面带<em>的类型<br>    在x86架构中 宽度为四字节<br>    在做加加减减运算时，要砍掉一个</em>来确定是加几减几(可与整数相加减)<br>    指针可以比较大小<br>    存储：小段存储，高位在后 低位在前</p>
+        <p>int* pi &#x3D; (int*)malloc(sizeof(int)*1024) ;</p>
+<pre><code>call		nh_malloc_dbg		_heap_alloc_dbg	_heap_alloc_base	HeapAlloc
+</code></pre>
+<p>当有多个call的时候，怎么判断哪个call做分配内存的工作<br>    把当前的指针拖到（栈）里，malloc进行完，它肯定要得到一个指针的指向，—即刚刚分配好的内存，<br>    把得到的指向输入，得到这个内存的地址，进一步的call看看这个call干了什么，从而找到我们需要的那个call。</p>
+<p>怎么分编静态动态库：<br>    看地址	，动态链接库里的函数都在自己的模块里<br>            静态库里的函数都是直接编译到我们 exe里的，跟我们的反汇编中的地址差不多</p>
+<p>free &#x2F;&#x2F;_free_dbg &#x2F;&#x2F;_free_base &#x2F;&#x2F;HeapFree	&#x2F;&#x2F;FF  间接call</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/3.2%E6%8C%87%E9%92%88%E7%89%B9%E6%80%A7/" data-id="cm8v9t4510003h4v81qe5cz40" data-title="3.2指针特性" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/04/04/%E6%BB%B4%E6%B0%B4C++/malloc+free+new-delete-Vector/malloc+free/" data-id="cm8vb3yc10002awv86agog9m8" data-title="malloc+free" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-滴水C++/malloc+free+new-delete-Vector/Vector" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/04/04/%E6%BB%B4%E6%B0%B4C++/malloc+free+new-delete-Vector/Vector/" class="article-date">
+  <time class="dt-published" datetime="2025-04-03T16:00:00.000Z" itemprop="datePublished">2025-04-04</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4C-%E7%AC%94%E8%AE%B0/">滴水C++笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/04/04/%E6%BB%B4%E6%B0%B4C++/malloc+free+new-delete-Vector/Vector/">Vector</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>Vector:<br>    1.本质就是一个数组<br>    2.可以动态扩充容量<br>    3.支持下表方法，查询性能好<br>    4.新增数据和删除数据较差</p>
+<p>当创建一个数组有空余的时候，例a[100]<br>这是Vector<int>v;			&#x2F;&#x2F; 定义了一个叫v的int型动态数组<br>v.push_back(1); </p>
+<pre><code>Vector&lt;int&gt;* pVector = new Vector&lt;int&gt;;
+pVector-&gt;push_back(1);			//指针的赋值方法
+</code></pre>
+<p>memset(从哪开 始,初始值大小,初始多少长度)	；	&#x2F;&#x2F;空间初始化<br>memcpy(	,	,	)		&#x2F;&#x2F;复制</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/04/04/%E6%BB%B4%E6%B0%B4C++/malloc+free+new-delete-Vector/Vector/" data-id="cm8vb5kct0000ucv8eik9arec" data-title="Vector" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-滴水C++/重载与重写区别" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/04/03/%E6%BB%B4%E6%B0%B4C++/%E9%87%8D%E8%BD%BD%E4%B8%8E%E9%87%8D%E5%86%99%E5%8C%BA%E5%88%AB/" class="article-date">
+  <time class="dt-published" datetime="2025-04-02T16:00:00.000Z" itemprop="datePublished">2025-04-03</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4C-%E7%AC%94%E8%AE%B0/">滴水C++笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/04/03/%E6%BB%B4%E6%B0%B4C++/%E9%87%8D%E8%BD%BD%E4%B8%8E%E9%87%8D%E5%86%99%E5%8C%BA%E5%88%AB/">重载与重写区别</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>overload   重载<br>override   重写—-覆盖		（子父类  有东西 名字 参数  返回值也一样）叫  重写</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/04/03/%E6%BB%B4%E6%B0%B4C++/%E9%87%8D%E8%BD%BD%E4%B8%8E%E9%87%8D%E5%86%99%E5%8C%BA%E5%88%AB/" data-id="cm8vb3ybz0000awv80xwrdqrc" data-title="重载与重写区别" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -576,7 +550,7 @@ z.Z::a = 6;
 
   <nav id="page-nav">
     
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
+    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><a class="page-number" href="/page/3/">3</a><a class="extend next" rel="next" href="/page/2/">Next &raquo;</a>
   </nav>
 
 </section>
@@ -587,7 +561,7 @@ z.Z::a = 6;
   <div class="widget-wrap">
     <h3 class="widget-title">Categories</h3>
     <div class="widget">
-      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%BB%B4%E6%B0%B4C-%E7%AC%94%E8%AE%B0/">滴水C++笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%BB%B4%E6%B0%B4C%E7%AC%94%E8%AE%B0/">滴水C笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%BB%B4%E6%B0%B4%E7%AC%94%E8%AE%B0/">滴水笔记</a></li></ul>
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%BB%B4%E6%B0%B4C-%E7%AC%94%E8%AE%B0/">滴水C++笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%BB%B4%E6%B0%B4C%E7%AC%94%E8%AE%B0/">滴水C笔记</a></li></ul>
     </div>
   </div>
 
@@ -615,23 +589,23 @@ z.Z::a = 6;
       <ul>
         
           <li>
-            <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/1.1%20this%E6%8C%87%E9%92%88/">this指针</a>
+            <a href="/2025/04/07/%E6%BB%B4%E6%B0%B4C++/%E6%A8%A1%E6%9D%BF_template/">模板_template</a>
           </li>
         
           <li>
-            <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/C++%E6%9E%84%E9%80%A0%20--%E9%87%8D%E8%BD%BD/">C++构造 --重载</a>
+            <a href="/2025/04/06/%E6%BB%B4%E6%B0%B4C++/%E9%93%BE%E8%A1%A8+%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
           </li>
         
           <li>
-            <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/">析构函数</a>
+            <a href="/2025/04/06/%E6%BB%B4%E6%B0%B4C++/%E9%93%BE%E8%A1%A8+%E4%BA%8C%E5%8F%89%E6%A0%91/%E9%93%BE%E8%A1%A8/">链表知识(小)点</a>
           </li>
         
           <li>
-            <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/%E7%BB%A7%E6%89%BF/">继承</a>
+            <a href="/2025/04/05/%E6%BB%B4%E6%B0%B4C++/%E5%BC%95%E7%94%A8+%E5%8F%8B%E5%85%83+%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/">引用类型</a>
           </li>
         
           <li>
-            <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/%E5%A4%9A%E5%B1%82%E7%BB%A7%E6%89%BF/">多层继承</a>
+            <a href="/2025/04/05/%E6%BB%B4%E6%B0%B4C++/%E5%BC%95%E7%94%A8+%E5%8F%8B%E5%85%83+%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/">运算符重载</a>
           </li>
         
       </ul>

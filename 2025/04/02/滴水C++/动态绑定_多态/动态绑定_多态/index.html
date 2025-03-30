@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>动态绑定_多态 | YeatesL</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="绑定就是将函数调用和地址关联起来 普通的数据成员，普通函数，是在编译完的时候，就已经绑定好了只有virtual的函数是动态绑定，即多态。多态：一个相同类型能体现不同的行为前期绑定  编译期绑定 运行期绑定  动态绑定  晚绑定 C++里边动态绑定是通过虚表实现的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="动态绑定_多态">
+<meta property="og:url" content="http://example.com/2025/04/02/%E6%BB%B4%E6%B0%B4C++/%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A_%E5%A4%9A%E6%80%81/%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A_%E5%A4%9A%E6%80%81/index.html">
+<meta property="og:site_name" content="YeatesL">
+<meta property="og:description" content="绑定就是将函数调用和地址关联起来 普通的数据成员，普通函数，是在编译完的时候，就已经绑定好了只有virtual的函数是动态绑定，即多态。多态：一个相同类型能体现不同的行为前期绑定  编译期绑定 运行期绑定  动态绑定  晚绑定 C++里边动态绑定是通过虚表实现的">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2025-04-01T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-30T07:05:02.993Z">
+<meta property="article:author" content="YeatesL">
+<meta name="twitter:card" content="summary">
+  
+    <link rel="alternate" href="/atom.xml" title="YeatesL" type="application/atom+xml">
+  
+  
+    <link rel="shortcut icon" href="/favicon.png">
+  
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+    
+<link rel="stylesheet" href="/fancybox/jquery.fancybox.min.css">
+
+  
+  
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <div id="container">
+    <div id="wrap">
+      <header id="header">
+  <div id="banner"></div>
+  <div id="header-outer" class="outer">
+    <div id="header-title" class="inner">
+      <h1 id="logo-wrap">
+        <a href="/" id="logo">YeatesL</a>
+      </h1>
+      
+    </div>
+    <div id="header-inner" class="inner">
+      <nav id="main-nav">
+        <a id="main-nav-toggle" class="nav-icon"><span class="fa fa-bars"></span></a>
+        
+          <a class="main-nav-link" href="/">Home</a>
+        
+          <a class="main-nav-link" href="/archives">Archives</a>
+        
+      </nav>
+      <nav id="sub-nav">
+        
+        
+          <a class="nav-icon" href="/atom.xml" title="RSS Feed"><span class="fa fa-rss"></span></a>
+        
+        <a class="nav-icon nav-search-btn" title="Search"><span class="fa fa-search"></span></a>
+      </nav>
+      <div id="search-form-wrap">
+        <form action="//google.com/search" method="get" accept-charset="UTF-8" class="search-form"><input type="search" name="q" class="search-form-input" placeholder="Search"><button type="submit" class="search-form-submit">&#xF002;</button><input type="hidden" name="sitesearch" value="http://example.com"></form>
+      </div>
+    </div>
+  </div>
+</header>
+
+      <div class="outer">
+        <section id="main"><article id="post-滴水C++/动态绑定_多态/动态绑定_多态" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/04/02/%E6%BB%B4%E6%B0%B4C++/%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A_%E5%A4%9A%E6%80%81/%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A_%E5%A4%9A%E6%80%81/" class="article-date">
+  <time class="dt-published" datetime="2025-04-01T16:00:00.000Z" itemprop="datePublished">2025-04-02</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4C-%E7%AC%94%E8%AE%B0/">滴水C++笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 class="p-name article-title" itemprop="headline name">
+      动态绑定_多态
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>绑定就是将函数调用和地址关联起来</p>
+<p>普通的数据成员，普通函数，是在编译完的时候，就已经绑定好了<br>只有virtual的函数是动态绑定，即多态。<br>多态：一个相同类型能体现不同的行为<br>前期绑定  编译期绑定</p>
+<p>运行期绑定  动态绑定  晚绑定</p>
+<p>C++里边动态绑定是通过虚表实现的</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/04/02/%E6%BB%B4%E6%B0%B4C++/%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A_%E5%A4%9A%E6%80%81/%E5%8A%A8%E6%80%81%E7%BB%91%E5%AE%9A_%E5%A4%9A%E6%80%81/" data-id="cm8vaqeqq0001u4v8a4oa717z" data-title="动态绑定_多态" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+    
+<nav id="article-nav">
+  
+    <a href="/2025/04/02/%E6%BB%B4%E6%B0%B4C++/%E8%99%9A%E5%87%BD%E6%95%B0/%E8%99%9A%E5%87%BD%E6%95%B0%E8%A1%A8/" id="article-nav-newer" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Newer</strong>
+      <div class="article-nav-title">
+        
+          虚函数表
+        
+      </div>
+    </a>
+  
+  
+    <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/1.1%20this%E6%8C%87%E9%92%88/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">this指针</div>
+    </a>
+  
+</nav>
+
+  
+</article>
+
+
+</section>
+        
+          <aside id="sidebar">
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Categories</h3>
+    <div class="widget">
+      <ul class="category-list"><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%BB%B4%E6%B0%B4C-%E7%AC%94%E8%AE%B0/">滴水C++笔记</a></li><li class="category-list-item"><a class="category-list-link" href="/categories/%E6%BB%B4%E6%B0%B4C%E7%AC%94%E8%AE%B0/">滴水C笔记</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+
+  
+    
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Archives</h3>
+    <div class="widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li></ul>
+    </div>
+  </div>
+
+
+  
+    
+  <div class="widget-wrap">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget">
+      <ul>
+        
+          <li>
+            <a href="/2025/04/07/%E6%BB%B4%E6%B0%B4C++/%E6%A8%A1%E6%9D%BF_template/">模板_template</a>
+          </li>
+        
+          <li>
+            <a href="/2025/04/06/%E6%BB%B4%E6%B0%B4C++/%E9%93%BE%E8%A1%A8+%E4%BA%8C%E5%8F%89%E6%A0%91/%E4%BA%8C%E5%8F%89%E6%A0%91/">二叉树</a>
+          </li>
+        
+          <li>
+            <a href="/2025/04/06/%E6%BB%B4%E6%B0%B4C++/%E9%93%BE%E8%A1%A8+%E4%BA%8C%E5%8F%89%E6%A0%91/%E9%93%BE%E8%A1%A8/">链表知识(小)点</a>
+          </li>
+        
+          <li>
+            <a href="/2025/04/05/%E6%BB%B4%E6%B0%B4C++/%E5%BC%95%E7%94%A8+%E5%8F%8B%E5%85%83+%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/%E5%BC%95%E7%94%A8%E7%B1%BB%E5%9E%8B/">引用类型</a>
+          </li>
+        
+          <li>
+            <a href="/2025/04/05/%E6%BB%B4%E6%B0%B4C++/%E5%BC%95%E7%94%A8+%E5%8F%8B%E5%85%83+%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/%E8%BF%90%E7%AE%97%E7%AC%A6%E9%87%8D%E8%BD%BD/">运算符重载</a>
+          </li>
+        
+      </ul>
+    </div>
+  </div>
+
+  
+</aside>
+        
+      </div>
+      <footer id="footer">
+  
+  <div class="outer">
+    <div id="footer-info" class="inner">
+      
+      &copy; 2025 YeatesL<br>
+      Powered by <a href="https://hexo.io/" target="_blank">Hexo</a>
+    </div>
+  </div>
+</footer>
+
+    </div>
+    <nav id="mobile-nav">
+  
+    <a href="/" class="mobile-nav-link">Home</a>
+  
+    <a href="/archives" class="mobile-nav-link">Archives</a>
+  
+</nav>
+    
+
+
+<script src="/js/jquery-3.6.4.min.js"></script>
+
+
+
+  
+<script src="/fancybox/jquery.fancybox.min.js"></script>
+
+
+
+
+<script src="/js/script.js"></script>
+
+
+
+
+
+  </div>
+</body>
+</html>
