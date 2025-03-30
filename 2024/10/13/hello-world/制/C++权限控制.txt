@@ -1,0 +1,48 @@
+---
+title: C++权限控制
+date: 2025-04-2
+categories: 滴水C++笔记
+tags: 
+---
+private	能进行整改的			//可以通过函数访问
+							//指针也可以访问私有的成员
+
+public	不能随意改动的
+
+struct Rest
+{
+private:			//只有自己的成员才能用的
+		int x;
+public:			//可以给外边提供的
+		int y;
+}；
+--------------------
+struct Rest
+{
+private:
+		int x;
+public:
+		int y;
+
+	void pubg()
+	{
+		printf("%d %d",x,y);		//x，y 都能被自己所使用
+	}
+};
+
+-----------------------
+struct Rest
+{
+private:
+		int x；
+public:			
+		int y;
+};
+void pubg()
+{
+	printf(" %d",y);		//x不能被其他的函数之类的使用，y可以提供给外边
+}
+-----------------
+
+
+

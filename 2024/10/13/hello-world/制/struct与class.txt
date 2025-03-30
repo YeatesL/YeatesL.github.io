@@ -1,0 +1,39 @@
+---
+title: C++权限控制:struct与class
+date: 2025-04-1 
+categories: 滴水C++笔记
+tags: 
+---
+class		（默认private）
+与  
+struct	（默认public）
+不一样的点：	在与权限不一样
+
+-----------------0
+class Base
+{
+public:
+	int x;
+	int y;
+};
+class sub::public Base		//----sub::base----  这个在没有表明什么继承的时候，它默认继承的(class)时private
+{					//所以要在sub::后面表明继承的是public的形式
+public
+	int a;
+	int b;
+};
+在(class)sub继承()classBase的成员时,若没有表明的话，系统默认继承的形式是private
+-------------------0
+------------------
+struct Base
+{
+	int x;
+	int y;
+};
+struct sub::Base
+{
+	int a;
+	int b;
+};
+这个系统默认的是public，所以在用sub结构体的时候，可以定义x，y的值
+-----------------

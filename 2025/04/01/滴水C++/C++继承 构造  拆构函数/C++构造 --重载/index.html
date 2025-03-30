@@ -4,17 +4,17 @@
   <meta charset="utf-8">
   
   
-  <title>Hello World | YeatesL</title>
+  <title>C++构造 --重载 | YeatesL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+  <meta name="description" content="&#x2F;*构造函数    1.没有返回值，即（void）    2与结构的名字要一样（与类同名）    3.是在创造对象的时候执行的。    4.主要用于初始化数据    5.多个，成为重载    6.编译器不要求必须提供*&#x2F;在开始的时候，对对象进行赋值struct  person{    int age;    int level;&#x2F;&#x2F;———定义了构造函数就要用">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Hello World">
-<meta property="og:url" content="http://example.com/2024/10/13/hello-world/index.html">
+<meta property="og:title" content="C++构造 --重载">
+<meta property="og:url" content="http://example.com/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/C++%E6%9E%84%E9%80%A0%20--%E9%87%8D%E8%BD%BD/index.html">
 <meta property="og:site_name" content="YeatesL">
-<meta property="og:description" content="Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub. Quick">
+<meta property="og:description" content="&#x2F;*构造函数    1.没有返回值，即（void）    2与结构的名字要一样（与类同名）    3.是在创造对象的时候执行的。    4.主要用于初始化数据    5.多个，成为重载    6.编译器不要求必须提供*&#x2F;在开始的时候，对对象进行赋值struct  person{    int age;    int level;&#x2F;&#x2F;———定义了构造函数就要用">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2024-10-13T12:35:44.399Z">
-<meta property="article:modified_time" content="2024-10-13T12:35:44.399Z">
+<meta property="article:published_time" content="2025-03-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-30T06:54:35.112Z">
 <meta property="article:author" content="YeatesL">
 <meta name="twitter:card" content="summary">
   
@@ -71,12 +71,16 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-hello-world" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-滴水C++/C++继承 构造  拆构函数/C++构造 --重载" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2024/10/13/hello-world/" class="article-date">
-  <time class="dt-published" datetime="2024-10-13T12:35:44.399Z" itemprop="datePublished">2024-10-13</time>
+    <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/C++%E6%9E%84%E9%80%A0%20--%E9%87%8D%E8%BD%BD/" class="article-date">
+  <time class="dt-published" datetime="2025-03-31T16:00:00.000Z" itemprop="datePublished">2025-04-01</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4C-%E7%AC%94%E8%AE%B0/">滴水C++笔记</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -85,7 +89,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      Hello World
+      C++构造 --重载
     </h1>
   
 
@@ -93,24 +97,17 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>Welcome to <a target="_blank" rel="noopener" href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a target="_blank" rel="noopener" href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a target="_blank" rel="noopener" href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a target="_blank" rel="noopener" href="https://github.com/hexojs/hexo/issues">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo new <span class="string">&quot;My New Post&quot;</span></span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/writing.html">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo server</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/server.html">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo generate</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/generating.html">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ hexo deploy</span><br></pre></td></tr></table></figure>
-
-<p>More info: <a target="_blank" rel="noopener" href="https://hexo.io/docs/one-command-deployment.html">Deployment</a></p>
+        <p>&#x2F;*构造函数<br>    1.没有返回值，即（void）<br>    2与结构的名字要一样（与类同名）<br>    3.是在创造对象的时候执行的。<br>    4.主要用于初始化数据<br>    5.多个，成为重载<br>    6.编译器不要求必须提供<br>*&#x2F;<br>在开始的时候，对对象进行赋值<br>struct  person<br>{<br>    int age;<br>    int level;<br>&#x2F;&#x2F;———定义了构造函数就要用：&#x2F;&#x2F;person p(1,2)；&#x2F;&#x2F;<br>    &#x2F;&#x2F;构造函数： 				3.是在创造对象的时候执行的。<br>    person(int age,int level)         &#x2F;&#x2F;这个是函数，但又有区别 1.没有返回值，即（void）2.与结构的名字要一样（与类同名）<br>    {<br>        this-&gt;age &#x3D; age;<br>        this-&gt;level &#x3D; level;<br>    }<br>&#x2F;&#x2F;——-多个构造函数  叫重载<br>    person()<br>    {<br>                &#x2F;&#x2F;不想赋值了，可以在写上这个（前提是不能和前面函数的一样），保证了person ()不会报错<br>    }</p>
+<p>&#x2F;&#x2F;——普通成员的—重载<br>&#x2F;&#x2F;——-通过对象的方式，调用方法<br>    viod print()<br>    {<br>        printf(“%d %d”,age,level);<br>    }<br>    viod print(int x)		&#x2F;&#x2F;viod print(char x)<br>    {<br>        printf(“%d %d”,age,level);<br>    }<br>&#x2F;&#x2F;——-C++里允许函数名一样，但要保证参数，类型，个数，不一样就行	—-但返回类型要一样（void，int）</p>
+<p>};<br>int main(	)<br>{<br>    person p(1,2)；		&#x2F;&#x2F;在栈里边分配空间，用完后就是垃圾</p>
+<pre><code>p.print();
+</code></pre>
+<p>}</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2024/10/13/hello-world/" data-id="cm27mehgy0000nov8hrms8dl4" data-title="Hello World" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/C++%E6%9E%84%E9%80%A0%20--%E9%87%8D%E8%BD%BD/" data-id="cm8vadlty0000b8v80vym5285" data-title="C++构造 --重载" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -120,15 +117,20 @@
     
 <nav id="article-nav">
   
-    <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/6.2PE%E5%A4%B4/" id="article-nav-newer" class="article-nav-link-wrap">
+    <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/1.1%20this%E6%8C%87%E9%92%88/" id="article-nav-newer" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Newer</strong>
       <div class="article-nav-title">
         
-          6.2PE
+          this指针
         
       </div>
     </a>
   
+  
+    <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/C++%E7%BB%A7%E6%89%BF%20%E6%9E%84%E9%80%A0%20%20%E6%8B%86%E6%9E%84%E5%87%BD%E6%95%B0/%E6%9E%90%E6%9E%84%E5%87%BD%E6%95%B0/" id="article-nav-older" class="article-nav-link-wrap">
+      <strong class="article-nav-caption">Older</strong>
+      <div class="article-nav-title">析构函数</div>
+    </a>
   
 </nav>
 
