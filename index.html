@@ -69,9 +69,57 @@
       <div class="outer">
         <section id="main">
   
-    <article id="post-C" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-滴水C++/1.1 this指针" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/03/26/C/" class="article-date">
+    <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/1.1%20this%E6%8C%87%E9%92%88/" class="article-date">
+  <time class="dt-published" datetime="2025-03-31T16:00:00.000Z" itemprop="datePublished">2025-04-01</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4%E7%AC%94%E8%AE%B0/">滴水笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/1.1%20this%E6%8C%87%E9%92%88/">this指针</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>this直接做加减，编译器是不允许的，它的作用只有一个  值是当前对象的首地址<br>struct Base	&#x2F;&#x2F;定义结构体<br>{<br>    int x;<br>    int y;<br>};<br>int Max(base* pb)		&#x2F;&#x2F;用结构体指针来比大小<br>{<br>    if(pb-&gt;x &gt; pb-&gt;y)<br>    {<br>        return pb-&gt;x;<br>    }<br>    return pb-&gt;y;		&#x2F;&#x2F;也可用else来进行输出</p>
+<p>}<br>Base base；			&#x2F;&#x2F;则是相当于定义了一个名叫  base 的结构体<br>int x&#x3D; Max(&amp;base);</p>
+<p>———-若是函数在结构体里边，则使用时是	int x &#x3D; base.Max(&amp;base);</p>
+<p>把函数放在结构体里边 的时候， 会传递一个地址	地址是  当前结构体的首地址<br>·		————（在保护现场）的时候  push ecx；	是为了在后续可以正常使用ecx</p>
+<p>&#x2F;*<br>–结构体（指针）用的    pb-&gt;x;<br>–构体对象则是       pb.x&#x3D; —–;<br>–*&#x2F;</p>
+<p>—-封装——<br>    函数在结构体里边		struct （结构体）		结构体——&gt;类<br>对象： 用结构体创造的类型变量的时候，变量就是对象</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/04/01/%E6%BB%B4%E6%B0%B4C++/1.1%20this%E6%8C%87%E9%92%88/" data-id="cm8va1gte0000a8v80mxl3jvg" data-title="this指针" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-滴水C语言/C" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/C/" class="article-date">
   <time class="dt-published" datetime="2025-03-26T13:46:11.000Z" itemprop="datePublished">2025-03-26</time>
 </a>
     
@@ -87,7 +135,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/26/C/">C</a>
+      <a class="p-name article-title" href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/C/">C</a>
     </h1>
   
 
@@ -100,12 +148,10 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/C/" data-id="cm8ug9zwh00007sv8ekg9ddzb" data-title="C" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/C/" data-id="cm8v9t454000ih4v87x6n3lcy" data-title="C" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%9B%BE/" rel="tag">数图</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%A1%A8%E6%A0%BC/" rel="tag">表格</a></li></ul>
-
     </footer>
   </div>
   
@@ -114,12 +160,16 @@
 
 
   
-    <article id="post-3.2指针特性" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-滴水C语言/11.结构体" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/03/26/3.2%E6%8C%87%E9%92%88%E7%89%B9%E6%80%A7/" class="article-date">
+    <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/11.%E7%BB%93%E6%9E%84%E4%BD%93/" class="article-date">
   <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4%E7%AC%94%E8%AE%B0/">滴水笔记</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -128,7 +178,154 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/26/3.2%E6%8C%87%E9%92%88%E7%89%B9%E6%80%A7/">3.2指针特性</a>
+      <a class="p-name article-title" href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/11.%E7%BB%93%E6%9E%84%E4%BD%93/">11.结构体</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>struct xxx			&#x2F;&#x2F;定义一个结构体<br>{<br>    int x;<br>    int y;<br>};<br>}S1,S2;			&#x2F;&#x2F;用结构体定义两个结构体变量S1,S2\</p>
+<p>struct Stu<br>{<br>    int num;<br>    cgar name[20];<br>    char sex;<br>    int age;<br>    float score;<br>}s[30];			&#x2F;&#x2F;定义了有30个变量的结构体数组</p>
+<p>Stu* p;		&#x2F;&#x2F;指针变量*p	&#x2F;指向结构体数组的指针<br>p &#x3D; s;		&#x2F;&#x2F;指针变量p指向结构体数组的首地址</p>
+<p>p-&gt;num;		&#x2F;&#x2F;使用p指向结构体数组的元素</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/11.%E7%BB%93%E6%9E%84%E4%BD%93/" data-id="cm8v9t44x0000h4v8agif7qxu" data-title="11.结构体" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-滴水C语言/10.宏定义" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/10.%E5%AE%8F%E5%AE%9A%E4%B9%89/" class="article-date">
+  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4%E7%AC%94%E8%AE%B0/">滴水笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/10.%E5%AE%8F%E5%AE%9A%E4%B9%89/">10.宏定义</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p> 宏定义<br>#define PI 3		&#x2F;&#x2F;即后边出现的PI，在计算机编译的时候，会替换成3<br>#define S(a,b) a&gt;b?a:b		&#x2F;&#x2F;num&#x3D;S(m,n),即可以比较m,n的大小</p>
+<p>条件编译命令<br> #ifdef BUUG ok<br>int main()<br>{<br> #ifdef BUUG<br>    printf(“yes\n”);		&#x2F;&#x2F;如果BUUG被定义<br> #else<br>    printf(“no\n”):		&#x2F;&#x2F;如果BUUG没有被定义<br> #endif<br>    return 0;</p>
+<p> #ifdef BUUG<br>    程序段1		&#x2F;&#x2F;编译被 #define命令编译过 654****** 程序段1，否者<br> #else<br>    程序段2<br> #endif</p>
+<p> #ifdef BUUG		&#x2F;&#x2F;若BUUG未被#define命令定义，则对程序段1进行编译，否则对程序段2进行编译。<br>    程序段1			<br> #else<br>    程序段2<br> #endif</p>
+<p> #define R 1<br> #if R<br>    程序段1		&#x2F;&#x2F;判断常量表达式R的值，当R的值为真（非0），则对程序段1进行编译，否则对程序段2进行编译<br> #else<br>    程序段2<br> #endif</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/10.%E5%AE%8F%E5%AE%9A%E4%B9%89/" data-id="cm8v9t44z0001h4v8d8yaelzi" data-title="10.宏定义" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-滴水C语言/3.1指针" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/3.1%E6%8C%87%E9%92%88/" class="article-date">
+  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4%E7%AC%94%E8%AE%B0/">滴水笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/3.1%E6%8C%87%E9%92%88/">3.1指针</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>（加减的时候要砍<em>）<br>例<br>char</em>  类型  是把值取出来，然后把取出来的值当成地址，再次取值<br>若是char** 类型   （在上面的基础上）再次把取出来的值当成地址，再次取值<br>（以此类推）<br>char* p<br><em>p&#x3D;&#x3D;<em>（p+0）&#x3D;&#x3D;p[0]<br>char</em></em> p<br><em>（</em>（p+2）+1）&#x3D;&#x3D;p[2][1]<br>char*** p<br><em>（</em>（*（p+1）+2）+3）&#x3D;&#x3D;p[1][2][3]</p>
+<pre><code>char** p		p为char(*)类型	(*)p为char*类型	(**)p为char类型
+*(*(p+1)+1)   p为char**  p+1为char**  四字节
+（p+1）p为char**，+1时要砍*，后为char* 为四字节 //所以（p+1）中的+1实际上是加上四字节.
+  (*(p+1）+1)   *(p+1)为char* 类型，+1时要砍*，后为char类型，为一字节 //所以(*(p+1）+1) 中的后一个+1实际上为加上一字节。
+</code></pre>
+<p>int i&#x3D;100;		&#x2F;&#x2F;把值存在i里<br>int* p&#x3D;&i;		&#x2F;&#x2F;lea  取i的地址存在p里<br>printf(“%d\n”, p);	&#x2F;&#x2F;实际上是i的地址<br>printf(“%d\n”, *p);	&#x2F;&#x2F;取的100（p里存着的i地址里面的值）</p>
+<p>&#x2F;&#x2F;指针 *<br>{<br>结构体指针		x—&gt;结构体（x里存得地址，地址指向的结构体）<br>指针的指针		x—&gt;指针	 （x里存得地址，地址指向的指针）<br>指针数组		x—&gt;数组 	 （x里存得地址，地址指向的数组）<br>}<br>&#x2F;&#x2F;指针函数 是函数  本质是返回值是 指针。</p>
+<p>int（<em>px）[5]    &#x2F;&#x2F;<em>px  int[5]<br>    ++  相当于</em>px砍掉</em>，相当于int[5] (五个int）也就是长度是五个int 也就是 4*5&#x3D;20</p>
+<p>int arr[20]&#x3D;{1,2,3,4,5,……….};<br>int (<em>px)[2];<br>px&#x3D;(int (</em>)[2])arr;	&#x2F;&#x2F;取得是arr[0]的地址<br>printf(“%d\n”,<em>(</em>(px));<br>printf(“%d\n”,<em>(</em>(px+0)+0);<br>printf(“%d\n”,<em>(</em>(px+1)+1);	–px[1][1]	&#x2F;&#x2F;px是int(<em>)[2]类型，把</em>砍掉成 int[2]  相当于加了八个字节。4  2 &#x3D;  8	也就是从arr[0]的地址转移到了arr[2]<br>                    &#x2F;&#x2F;把(<em>px+1) 弄完再+1成了数组—&gt;成了int</em>类型，+1 也就是 加上四个字节<br>printf(“%d\n”,<em>(</em>(px+3)+3);	—px[3][3]  	—-&gt; printf出的值 –10<br>  &#x2F;&#x2F;貌似好像会报错…</p>
+<p>px&#x3D;(int (<em>)[2])arr;<br>printf(“%d %d\n”,px,<em>px);	&#x2F;&#x2F;这里px与</em>px值一样，但它俩的类型完全不同<br>            &#x2F;&#x2F;理解:px指向了一个储存了数组首地址的地址，而</em>px就是获取这个地址的值，这个地址的值就是数组首地址的值</p>
+<p>（要带本身字节宽度）<br>&#x2F;&#x2F;二维指针<br>char (<em>p)[2][3]			&#x2F;&#x2F; 正常p的宽度：1</em>2<em>3  （1是因为是char–一字节）<br>printf(“%d\n”,(</em>(<em>(</em>(p+2)+3)+4));   &#x2F;&#x2F;	2<em>6</em>  1<em>3</em>3  +4<em>1<br>                     &#x2F;&#x2F;2</em>(2<em>3)  (1</em>3*3)   [char(1) 乘4]</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/3.1%E6%8C%87%E9%92%88/" data-id="cm8v9t4500002h4v8ehxre48k" data-title="3.1指针" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-滴水C语言/3.2指针特性" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/3.2%E6%8C%87%E9%92%88%E7%89%B9%E6%80%A7/" class="article-date">
+  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4%E7%AC%94%E8%AE%B0/">滴水笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/3.2%E6%8C%87%E9%92%88%E7%89%B9%E6%80%A7/">3.2指针特性</a>
     </h1>
   
 
@@ -141,7 +338,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/3.2%E6%8C%87%E9%92%88%E7%89%B9%E6%80%A7/" data-id="cm8ufy5xk0000xsv8cng546zo" data-title="3.2指针特性" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/3.2%E6%8C%87%E9%92%88%E7%89%B9%E6%80%A7/" data-id="cm8v9t4510003h4v81qe5cz40" data-title="3.2指针特性" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -153,12 +350,16 @@
 
 
   
-    <article id="post-4.移位指令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-滴水C语言/4.移位指令" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/03/26/4.%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4/" class="article-date">
+    <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/4.%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4/" class="article-date">
   <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4%E7%AC%94%E8%AE%B0/">滴水笔记</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -167,7 +368,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/26/4.%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4/">4.移位指令</a>
+      <a class="p-name article-title" href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/4.%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4/">4.移位指令</a>
     </h1>
   
 
@@ -181,7 +382,7 @@
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/4.%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4/" data-id="cm8ufy5xl0001xsv88dt2a22u" data-title="4.移位指令" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/4.%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4/" data-id="cm8v9t4510005h4v814da9n6f" data-title="4.移位指令" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -193,12 +394,16 @@
 
 
   
-    <article id="post-5.2内存分配" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-滴水C语言/5.2内存分配" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/03/26/5.2%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" class="article-date">
+    <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/5.2%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" class="article-date">
   <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4%E7%AC%94%E8%AE%B0/">滴水笔记</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -207,7 +412,7 @@
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/26/5.2%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">5.2内存分配</a>
+      <a class="p-name article-title" href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/5.2%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">5.2内存分配</a>
     </h1>
   
 
@@ -236,7 +441,7 @@ fwrite
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/5.2%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" data-id="cm8ufy5xl0002xsv8gpmhdghk" data-title="5.2内存分配" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/5.2%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" data-id="cm8v9t4520007h4v87w4t2tx4" data-title="5.2内存分配" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
@@ -248,12 +453,16 @@ fwrite
 
 
   
-    <article id="post-6.1PE" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+    <article id="post-滴水C语言/5.1内存分配" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/03/26/6.1PE/" class="article-date">
+    <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/5.1%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" class="article-date">
   <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
 </a>
     
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4%E7%AC%94%E8%AE%B0/">滴水笔记</a>
+  </div>
+
   </div>
   <div class="article-inner">
     
@@ -262,7 +471,50 @@ fwrite
         
   
     <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/26/6.1PE/">6.1PE</a>
+      <a class="p-name article-title" href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/5.1%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">5.1内存分配</a>
+    </h1>
+  
+
+      </header>
+    
+    <div class="e-content article-entry" itemprop="articleBody">
+      
+        <p>在使用#define  ….  … 简单的替换时 它不是常量区的东西 在一开始就换好了<br>—新建一个 new class<br>将代码写在这里的  xxxx.cpp 中<br>再复制（声明）在 xxxx.h中<br>在主函数那里   加#define “xxxx.h”就OK了<br>在主函数中就没有看着那么复杂了<br>（头文件 声明，cpp中写代码）</p>
+
+      
+    </div>
+    <footer class="article-footer">
+      <a data-url="http://example.com/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/5.1%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" data-id="cm8v9t4520009h4v8cfhyb6fs" data-title="5.1内存分配" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      
+      
+      
+    </footer>
+  </div>
+  
+</article>
+
+
+
+  
+    <article id="post-滴水C语言/6.1PE" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+  <div class="article-meta">
+    <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/6.1PE/" class="article-date">
+  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
+</a>
+    
+  <div class="article-category">
+    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4%E7%AC%94%E8%AE%B0/">滴水笔记</a>
+  </div>
+
+  </div>
+  <div class="article-inner">
+    
+    
+      <header class="article-header">
+        
+  
+    <h1 itemprop="name">
+      <a class="p-name article-title" href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/6.1PE/">6.1PE</a>
     </h1>
   
 
@@ -277,226 +529,10 @@ fwrite
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/6.1PE/" data-id="cm8ufy5xm0003xsv88x466ypi" data-title="6.1PE" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/6.1PE/" data-id="cm8v9t453000bh4v81a7db2hu" data-title="6.1PE" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-5.1内存分配" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/03/26/5.1%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" class="article-date">
-  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/26/5.1%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">5.1内存分配</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>在使用#define  ….  … 简单的替换时 它不是常量区的东西 在一开始就换好了<br>—新建一个 new class<br>将代码写在这里的  xxxx.cpp 中<br>再复制（声明）在 xxxx.h中<br>在主函数那里   加#define “xxxx.h”就OK了<br>在主函数中就没有看着那么复杂了<br>（头文件 声明，cpp中写代码）</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/5.1%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/" data-id="cm8ufy5xm0004xsv81ikb6sdw" data-title="5.1内存分配" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-6.2PE头" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/03/26/6.2PE%E5%A4%B4/" class="article-date">
-  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/26/6.2PE%E5%A4%B4/">6.2PE</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>1.DOC头<br>    WORD   e_magic   —  “MZ标准”用于判断是否为可执行文件。<br>    DWORD  e_lfanew   —  PE头相对于文件偏，用于定位PE文件<br>2.标准PE头<br>    WORD	Machine；		——		程序运行的CPU型号：  0x 00  任何处理器<br>    WORD	NumberOfSection;	—-	文件中存在的节的总数，如果要新增节或合并节，就要修改这个值<br>    &#x2F;&#x2F;DWORD TineDateStamp		&#x2F;&#x2F;时间戳：文件的创造时间（和操作系统的创造时间无关），编译器填写的<br>    &#x2F;&#x2F;DWORD PointerToSymbolTable；<br>    &#x2F;&#x2F;DWORD	NumberOfSymbols；<br>    WORD	SizeOfOptionalHeader;—-	 可选PE头的大小，32位PE文件默认E0h，64位PE文件默认为F0h	大小可以自定义<br>    WORD	Characteristics			 每个位有不同的含义，可执行文件值为10F  即 0 1 2 3 8 位置为1<br>3.可选PE头:<br>    WORD	Magic;		——		说明文件类型：10B 32位下的PE文件    20B  64位下的PE文件<br>    BYTE		MajorLinkerVersion；<br>    BYTE		MinorLinkerVersion；<br>    DWORD	SizeOfCodde;			&#x2F;&#x2F;所有代码节的和，必须是FileAlignment的整数倍  编译器填的（没用）<br>    DWORD	SizeOfInitializedDate；		&#x2F;&#x2F;已初始化数据大小的和，	必须是FileAlignment的整数倍  编译器填的（没用）<br>    DWORD	SizeOfUninitializedDate；		&#x2F;&#x2F;未初始化数据大小的和，	必须是FileAlignment的整数倍  编译器填的（没用）<br>    DWORD	AddressOfEntrypoint	；		程序入口<br>                        ——（基地址+OEP才是程序的入口）——–<br>    DWORD	BaseOfCode；			&#x2F;&#x2F;代码开始的基址，编译器填的（没用）<br>    DWORD	BaseOfDate；			&#x2F;&#x2F;数据开始的基址，编译器填的（没用）<br>    DWORD	ImageBase；	—–		内存镜像基址———-<br>    DWORD	SectionAlignment;	—–		内存对齐<br>    DWORD	FileAlignment;		——	文件对齐<br>    WORD	MajorOperatingSystemVersion;<br>    WORD	MinorOperatinnSystemVersion;<br>    WORD	MajorImageVersion;<br>    WORD	MinorImageVersion;<br>    WORD	MajorSubsystemVersion;<br>    WORD	MinorSubsystemVersion;<br>    DWORD	Win32VersionValue;<br>    DWORD	SizeOfImage;	—-	内存中整个   PE文件的映射的尺寸，可以比实际的值大，但必须SectionAlignment的整数倍<br>    DWORD	SizeOfHeaders;	—-		所有头+节表按照文件对齐的大小，否者加载会出错<br>    DWORD	CheckSum；			校验和，一些系统文件的要求，用于判断文件是否被修改<br>    WORD	Subsystem;<br>    WORD	DllCharacteristics;<br>    DWORD	SizeOfStackReserve;			初始化时保留的堆栈大小<br>    DWORD	SizeOfStackCommit;			初始化时实际提交的大小<br>    DWORD	SizeOfHeapReserve;			初始化时保留的堆大小<br>    DWORD	SizeOfHeapCommit			初始化时实践提交的大小<br>    DWORD	LoaderFlage;<br>    DWORD	NumberOfRvaAndSizes;		目录项数目</p>
-<p>一般程序都是从40000开始<br>exe文件是由一堆PE文件组成的</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/6.2PE%E5%A4%B4/" data-id="cm8ufy5xm0005xsv8f91t066t" data-title="6.2PE" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-10.宏定义" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/03/26/10.%E5%AE%8F%E5%AE%9A%E4%B9%89/" class="article-date">
-  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/26/10.%E5%AE%8F%E5%AE%9A%E4%B9%89/">10.宏定义</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p> 宏定义<br>#define PI 3		&#x2F;&#x2F;即后边出现的PI，在计算机编译的时候，会替换成3<br>#define S(a,b) a&gt;b?a:b		&#x2F;&#x2F;num&#x3D;S(m,n),即可以比较m,n的大小</p>
-<p>条件编译命令<br> #ifdef BUUG ok<br>int main()<br>{<br> #ifdef BUUG<br>    printf(“yes\n”);		&#x2F;&#x2F;如果BUUG被定义<br> #else<br>    printf(“no\n”):		&#x2F;&#x2F;如果BUUG没有被定义<br> #endif<br>    return 0;</p>
-<p> #ifdef BUUG<br>    程序段1		&#x2F;&#x2F;编译被 #define命令编译过 654****** 程序段1，否者<br> #else<br>    程序段2<br> #endif</p>
-<p> #ifdef BUUG		&#x2F;&#x2F;若BUUG未被#define命令定义，则对程序段1进行编译，否则对程序段2进行编译。<br>    程序段1			<br> #else<br>    程序段2<br> #endif</p>
-<p> #define R 1<br> #if R<br>    程序段1		&#x2F;&#x2F;判断常量表达式R的值，当R的值为真（非0），则对程序段1进行编译，否则对程序段2进行编译<br> #else<br>    程序段2<br> #endif</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/10.%E5%AE%8F%E5%AE%9A%E4%B9%89/" data-id="cm8ufy5xn0006xsv8cpnk172x" data-title="10.宏定义" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-11.结构体" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/03/26/11.%E7%BB%93%E6%9E%84%E4%BD%93/" class="article-date">
-  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/26/11.%E7%BB%93%E6%9E%84%E4%BD%93/">11.结构体</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>struct xxx			&#x2F;&#x2F;定义一个结构体<br>{<br>    int x;<br>    int y;<br>};<br>}S1,S2;			&#x2F;&#x2F;用结构体定义两个结构体变量S1,S2\</p>
-<p>struct Stu<br>{<br>    int num;<br>    cgar name[20];<br>    char sex;<br>    int age;<br>    float score;<br>}s[30];			&#x2F;&#x2F;定义了有30个变量的结构体数组</p>
-<p>Stu* p;		&#x2F;&#x2F;指针变量*p	&#x2F;指向结构体数组的指针<br>p &#x3D; s;		&#x2F;&#x2F;指针变量p指向结构体数组的首地址</p>
-<p>p-&gt;num;		&#x2F;&#x2F;使用p指向结构体数组的元素</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/11.%E7%BB%93%E6%9E%84%E4%BD%93/" data-id="cm8ufy5xn0007xsv8gl2w08yq" data-title="11.结构体" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
-  </div>
-  
-</article>
-
-
-
-  
-    <article id="post-3.1指针" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/03/26/3.1%E6%8C%87%E9%92%88/" class="article-date">
-  <time class="dt-published" datetime="2025-03-25T16:00:00.000Z" itemprop="datePublished">2025-03-26</time>
-</a>
-    
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="p-name article-title" href="/2025/03/26/3.1%E6%8C%87%E9%92%88/">3.1指针</a>
-    </h1>
-  
-
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>（加减的时候要砍<em>）<br>例<br>char</em>  类型  是把值取出来，然后把取出来的值当成地址，再次取值<br>若是char** 类型   （在上面的基础上）再次把取出来的值当成地址，再次取值<br>（以此类推）<br>char* p<br><em>p&#x3D;&#x3D;<em>（p+0）&#x3D;&#x3D;p[0]<br>char</em></em> p<br><em>（</em>（p+2）+1）&#x3D;&#x3D;p[2][1]<br>char*** p<br><em>（</em>（*（p+1）+2）+3）&#x3D;&#x3D;p[1][2][3]</p>
-<pre><code>char** p		p为char(*)类型	(*)p为char*类型	(**)p为char类型
-*(*(p+1)+1)   p为char**  p+1为char**  四字节
-（p+1）p为char**，+1时要砍*，后为char* 为四字节 //所以（p+1）中的+1实际上是加上四字节.
-  (*(p+1）+1)   *(p+1)为char* 类型，+1时要砍*，后为char类型，为一字节 //所以(*(p+1）+1) 中的后一个+1实际上为加上一字节。
-</code></pre>
-<p>int i&#x3D;100;		&#x2F;&#x2F;把值存在i里<br>int* p&#x3D;&i;		&#x2F;&#x2F;lea  取i的地址存在p里<br>printf(“%d\n”, p);	&#x2F;&#x2F;实际上是i的地址<br>printf(“%d\n”, *p);	&#x2F;&#x2F;取的100（p里存着的i地址里面的值）</p>
-<p>&#x2F;&#x2F;指针 *<br>{<br>结构体指针		x—&gt;结构体（x里存得地址，地址指向的结构体）<br>指针的指针		x—&gt;指针	 （x里存得地址，地址指向的指针）<br>指针数组		x—&gt;数组 	 （x里存得地址，地址指向的数组）<br>}<br>&#x2F;&#x2F;指针函数 是函数  本质是返回值是 指针。</p>
-<p>int（<em>px）[5]    &#x2F;&#x2F;<em>px  int[5]<br>    ++  相当于</em>px砍掉</em>，相当于int[5] (五个int）也就是长度是五个int 也就是 4*5&#x3D;20</p>
-<p>int arr[20]&#x3D;{1,2,3,4,5,……….};<br>int (<em>px)[2];<br>px&#x3D;(int (</em>)[2])arr;	&#x2F;&#x2F;取得是arr[0]的地址<br>printf(“%d\n”,<em>(</em>(px));<br>printf(“%d\n”,<em>(</em>(px+0)+0);<br>printf(“%d\n”,<em>(</em>(px+1)+1);	–px[1][1]	&#x2F;&#x2F;px是int(<em>)[2]类型，把</em>砍掉成 int[2]  相当于加了八个字节。4  2 &#x3D;  8	也就是从arr[0]的地址转移到了arr[2]<br>                    &#x2F;&#x2F;把(<em>px+1) 弄完再+1成了数组—&gt;成了int</em>类型，+1 也就是 加上四个字节<br>printf(“%d\n”,<em>(</em>(px+3)+3);	—px[3][3]  	—-&gt; printf出的值 –10<br>  &#x2F;&#x2F;貌似好像会报错…</p>
-<p>px&#x3D;(int (<em>)[2])arr;<br>printf(“%d %d\n”,px,<em>px);	&#x2F;&#x2F;这里px与</em>px值一样，但它俩的类型完全不同<br>            &#x2F;&#x2F;理解:px指向了一个储存了数组首地址的地址，而</em>px就是获取这个地址的值，这个地址的值就是数组首地址的值</p>
-<p>（要带本身字节宽度）<br>&#x2F;&#x2F;二维指针<br>char (<em>p)[2][3]			&#x2F;&#x2F; 正常p的宽度：1</em>2<em>3  （1是因为是char–一字节）<br>printf(“%d\n”,(</em>(<em>(</em>(p+2)+3)+4));   &#x2F;&#x2F;	2<em>6</em>  1<em>3</em>3  +4<em>1<br>                     &#x2F;&#x2F;2</em>(2<em>3)  (1</em>3*3)   [char(1) 乘4]</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/3.1%E6%8C%87%E9%92%88/" data-id="cm8ufy5y80008xsv83syxgyob" data-title="3.1指针" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%A1%A8%E6%A0%BC/" rel="tag">表格</a></li></ul>
-
     </footer>
   </div>
   
@@ -527,29 +563,15 @@ fwrite
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%9B%BE/" rel="tag">数图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A8%E6%A0%BC/" rel="tag">表格</a></li></ul>
-    </div>
-  </div>
-
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/%E6%95%B0%E5%9B%BE/" style="font-size: 10px;">数图</a> <a href="/tags/%E8%A1%A8%E6%A0%BC/" style="font-size: 20px;">表格</a>
-    </div>
-  </div>
-
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li></ul>
     </div>
   </div>
 
@@ -562,23 +584,23 @@ fwrite
       <ul>
         
           <li>
-            <a href="/2025/03/26/C/">C</a>
+            <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/1.1%20this%E6%8C%87%E9%92%88/">this指针</a>
           </li>
         
           <li>
-            <a href="/2025/03/26/3.2%E6%8C%87%E9%92%88%E7%89%B9%E6%80%A7/">3.2指针特性</a>
+            <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/C/">C</a>
           </li>
         
           <li>
-            <a href="/2025/03/26/4.%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4/">4.移位指令</a>
+            <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/11.%E7%BB%93%E6%9E%84%E4%BD%93/">11.结构体</a>
           </li>
         
           <li>
-            <a href="/2025/03/26/5.2%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">5.2内存分配</a>
+            <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/10.%E5%AE%8F%E5%AE%9A%E4%B9%89/">10.宏定义</a>
           </li>
         
           <li>
-            <a href="/2025/03/26/6.1PE/">6.1PE</a>
+            <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/3.1%E6%8C%87%E9%92%88/">3.1指针</a>
           </li>
         
       </ul>

@@ -4,20 +4,18 @@
   <meta charset="utf-8">
   
   
-  <title>C | YeatesL</title>
+  <title>this指针 | YeatesL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="B站-滴水的相关笔记">
+  <meta name="description" content="this直接做加减，编译器是不允许的，它的作用只有一个  值是当前对象的首地址struct Base	&#x2F;&#x2F;定义结构体{    int x;    int y;};int Max(base* pb)		&#x2F;&#x2F;用结构体指针来比大小{    if(pb-&gt;x &gt; pb-&gt;y)    {        return pb-&gt;x;    }">
 <meta property="og:type" content="article">
-<meta property="og:title" content="C">
-<meta property="og:url" content="http://example.com/2025/03/26/C/index.html">
+<meta property="og:title" content="this指针">
+<meta property="og:url" content="http://example.com/2025/04/01/%E6%BB%B4%E6%B0%B4C++/1.1%20this%E6%8C%87%E9%92%88/index.html">
 <meta property="og:site_name" content="YeatesL">
-<meta property="og:description" content="B站-滴水的相关笔记">
+<meta property="og:description" content="this直接做加减，编译器是不允许的，它的作用只有一个  值是当前对象的首地址struct Base	&#x2F;&#x2F;定义结构体{    int x;    int y;};int Max(base* pb)		&#x2F;&#x2F;用结构体指针来比大小{    if(pb-&gt;x &gt; pb-&gt;y)    {        return pb-&gt;x;    }">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-03-26T13:46:11.000Z">
-<meta property="article:modified_time" content="2025-03-29T17:05:33.673Z">
+<meta property="article:published_time" content="2025-03-31T16:00:00.000Z">
+<meta property="article:modified_time" content="2025-03-30T06:46:04.303Z">
 <meta property="article:author" content="YeatesL">
-<meta property="article:tag" content="表格">
-<meta property="article:tag" content="数图">
 <meta name="twitter:card" content="summary">
   
     <link rel="alternate" href="/atom.xml" title="YeatesL" type="application/atom+xml">
@@ -73,10 +71,10 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-C" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <section id="main"><article id="post-滴水C++/1.1 this指针" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
   <div class="article-meta">
-    <a href="/2025/03/26/C/" class="article-date">
-  <time class="dt-published" datetime="2025-03-26T13:46:11.000Z" itemprop="datePublished">2025-03-26</time>
+    <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/1.1%20this%E6%8C%87%E9%92%88/" class="article-date">
+  <time class="dt-published" datetime="2025-03-31T16:00:00.000Z" itemprop="datePublished">2025-04-01</time>
 </a>
     
   <div class="article-category">
@@ -91,7 +89,7 @@
         
   
     <h1 class="p-name article-title" itemprop="headline name">
-      C
+      this指针
     </h1>
   
 
@@ -99,17 +97,20 @@
     
     <div class="e-content article-entry" itemprop="articleBody">
       
-        <p>B站-滴水的相关笔记</p>
+        <p>this直接做加减，编译器是不允许的，它的作用只有一个  值是当前对象的首地址<br>struct Base	&#x2F;&#x2F;定义结构体<br>{<br>    int x;<br>    int y;<br>};<br>int Max(base* pb)		&#x2F;&#x2F;用结构体指针来比大小<br>{<br>    if(pb-&gt;x &gt; pb-&gt;y)<br>    {<br>        return pb-&gt;x;<br>    }<br>    return pb-&gt;y;		&#x2F;&#x2F;也可用else来进行输出</p>
+<p>}<br>Base base；			&#x2F;&#x2F;则是相当于定义了一个名叫  base 的结构体<br>int x&#x3D; Max(&amp;base);</p>
+<p>———-若是函数在结构体里边，则使用时是	int x &#x3D; base.Max(&amp;base);</p>
+<p>把函数放在结构体里边 的时候， 会传递一个地址	地址是  当前结构体的首地址<br>·		————（在保护现场）的时候  push ecx；	是为了在后续可以正常使用ecx</p>
+<p>&#x2F;*<br>–结构体（指针）用的    pb-&gt;x;<br>–构体对象则是       pb.x&#x3D; —–;<br>–*&#x2F;</p>
+<p>—-封装——<br>    函数在结构体里边		struct （结构体）		结构体——&gt;类<br>对象： 用结构体创造的类型变量的时候，变量就是对象</p>
 
       
     </div>
     <footer class="article-footer">
-      <a data-url="http://example.com/2025/03/26/C/" data-id="cm8ug9zwh00007sv8ekg9ddzb" data-title="C" class="article-share-link"><span class="fa fa-share">Share</span></a>
+      <a data-url="http://example.com/2025/04/01/%E6%BB%B4%E6%B0%B4C++/1.1%20this%E6%8C%87%E9%92%88/" data-id="cm8va1gte0000a8v80mxl3jvg" data-title="this指针" class="article-share-link"><span class="fa fa-share">Share</span></a>
       
       
       
-  <ul class="article-tag-list" itemprop="keywords"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E6%95%B0%E5%9B%BE/" rel="tag">数图</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/%E8%A1%A8%E6%A0%BC/" rel="tag">表格</a></li></ul>
-
     </footer>
   </div>
   
@@ -117,9 +118,9 @@
 <nav id="article-nav">
   
   
-    <a href="/2025/03/26/3.2%E6%8C%87%E9%92%88%E7%89%B9%E6%80%A7/" id="article-nav-older" class="article-nav-link-wrap">
+    <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/C/" id="article-nav-older" class="article-nav-link-wrap">
       <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">3.2指针特性</div>
+      <div class="article-nav-title">C</div>
     </a>
   
 </nav>
@@ -143,29 +144,15 @@
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tags</h3>
-    <div class="widget">
-      <ul class="tag-list" itemprop="keywords"><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E6%95%B0%E5%9B%BE/" rel="tag">数图</a></li><li class="tag-list-item"><a class="tag-list-link" href="/tags/%E8%A1%A8%E6%A0%BC/" rel="tag">表格</a></li></ul>
-    </div>
-  </div>
-
 
   
     
-  <div class="widget-wrap">
-    <h3 class="widget-title">Tag Cloud</h3>
-    <div class="widget tagcloud">
-      <a href="/tags/%E6%95%B0%E5%9B%BE/" style="font-size: 10px;">数图</a> <a href="/tags/%E8%A1%A8%E6%A0%BC/" style="font-size: 20px;">表格</a>
-    </div>
-  </div>
-
   
     
   <div class="widget-wrap">
     <h3 class="widget-title">Archives</h3>
     <div class="widget">
-      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li></ul>
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/04/">April 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2025/03/">March 2025</a></li><li class="archive-list-item"><a class="archive-list-link" href="/archives/2024/10/">October 2024</a></li></ul>
     </div>
   </div>
 
@@ -178,23 +165,23 @@
       <ul>
         
           <li>
-            <a href="/2025/03/26/C/">C</a>
+            <a href="/2025/04/01/%E6%BB%B4%E6%B0%B4C++/1.1%20this%E6%8C%87%E9%92%88/">this指针</a>
           </li>
         
           <li>
-            <a href="/2025/03/26/3.2%E6%8C%87%E9%92%88%E7%89%B9%E6%80%A7/">3.2指针特性</a>
+            <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/C/">C</a>
           </li>
         
           <li>
-            <a href="/2025/03/26/4.%E7%A7%BB%E4%BD%8D%E6%8C%87%E4%BB%A4/">4.移位指令</a>
+            <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/11.%E7%BB%93%E6%9E%84%E4%BD%93/">11.结构体</a>
           </li>
         
           <li>
-            <a href="/2025/03/26/5.2%E5%86%85%E5%AD%98%E5%88%86%E9%85%8D/">5.2内存分配</a>
+            <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/10.%E5%AE%8F%E5%AE%9A%E4%B9%89/">10.宏定义</a>
           </li>
         
           <li>
-            <a href="/2025/03/26/6.1PE/">6.1PE</a>
+            <a href="/2025/03/26/%E6%BB%B4%E6%B0%B4C%E8%AF%AD%E8%A8%80/3.1%E6%8C%87%E9%92%88/">3.1指针</a>
           </li>
         
       </ul>
