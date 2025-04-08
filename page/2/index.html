@@ -110,7 +110,7 @@ pb-&gt;function_2();		//--FF		间接call
 </code></pre>
 <p>}</p>
 <p>call  Base<br>{<br>public:<br>    int x;<br>    int y;<br>    void function_1()<br>    {<br>        printf(“”);<br>    }<br>    virtual void function_2()<br>    {<br>        printf(“”);<br>    }<br>};<br>    printf(“%d”,sizeof(Base));		&#x2F;&#x2F;打印出来 c字节，因为虚函数 多加4字节</p>
-<p>当在一个对象里边加一个virtual的时候，新多出来的字节在这个对象的最上面（首地址），是真正的函数的地址<br>        &#x2F;&#x2F;virtual 的多少不影响结构体的大小  —-多出四个字节–指向一个数组，内存储的是虚函数的地址</p>
+<p>当在一个对象里边加一个virtual的时候，新多出来的字节在这个对象的最上面（首地址），是真正的函数的地址<br>        &#x2F;&#x2F;virtual 的多少不影响结构体的大小  —-多出四个字节–指向一个数组，内存储的是虚函数的地址<br>虚函数地址示意图：<br><img src="/2024/10/13/hello-world/%E6%95%B0%E8%A1%A8/%E8%99%9A%E5%87%BD%E6%95%B0%E5%9C%B0%E5%9D%80%E7%A4%BA%E6%84%8F%E5%9B%BE.jpg"><br>。</p>
 
       
     </div>
