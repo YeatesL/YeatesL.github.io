@@ -4,17 +4,13 @@
   <meta charset="utf-8">
   
   
-  <title>malloc+free | YeatesL</title>
+  <title>Category: 妮 | YeatesL</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="int* pi &#x3D; (int*)malloc(sizeof(int)*1024) ; call		nh_malloc_dbg		_heap_alloc_dbg	_heap_alloc_base	HeapAlloc  当有多个call的时候，怎么判断哪个call做分配内存的工作    把当前的指针拖到（栈）里，malloc进行完，它肯定要得到一个指针的指向，—即刚刚分配好的内存，    把">
-<meta property="og:type" content="article">
-<meta property="og:title" content="malloc+free">
-<meta property="og:url" content="http://example.com/2025/04/04/%E6%BB%B4%E6%B0%B4C++/malloc+free+new-delete-Vector/malloc+free/index.html">
+  <meta property="og:type" content="website">
+<meta property="og:title" content="YeatesL">
+<meta property="og:url" content="http://example.com/categories/%E5%A6%AE/index.html">
 <meta property="og:site_name" content="YeatesL">
-<meta property="og:description" content="int* pi &#x3D; (int*)malloc(sizeof(int)*1024) ; call		nh_malloc_dbg		_heap_alloc_dbg	_heap_alloc_base	HeapAlloc  当有多个call的时候，怎么判断哪个call做分配内存的工作    把当前的指针拖到（栈）里，malloc进行完，它肯定要得到一个指针的指向，—即刚刚分配好的内存，    把">
 <meta property="og:locale" content="en_US">
-<meta property="article:published_time" content="2025-04-03T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-03-30T07:12:37.553Z">
 <meta property="article:author" content="YeatesL">
 <meta name="twitter:card" content="summary">
   
@@ -71,71 +67,39 @@
 </header>
 
       <div class="outer">
-        <section id="main"><article id="post-滴水C++/malloc+free+new-delete-Vector/malloc+free" class="h-entry article article-type-post" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
-  <div class="article-meta">
-    <a href="/2025/04/04/%E6%BB%B4%E6%B0%B4C++/malloc+free+new-delete-Vector/malloc+free/" class="article-date">
-  <time class="dt-published" datetime="2025-04-03T16:00:00.000Z" itemprop="datePublished">2025-04-04</time>
-</a>
-    
-  <div class="article-category">
-    <a class="article-category-link" href="/categories/%E6%BB%B4%E6%B0%B4C-%E7%AC%94%E8%AE%B0/">滴水C++笔记</a>
-  </div>
-
-  </div>
-  <div class="article-inner">
-    
-    
-      <header class="article-header">
-        
+        <section id="main">
   
-    <h1 class="p-name article-title" itemprop="headline name">
-      malloc+free
+  
+    
+    
+      
+      
+      <section class="archives-wrap">
+        <div class="archive-year-wrap">
+          <a href="/archives/2025" class="archive-year">2025</a>
+        </div>
+        <div class="archives">
+    
+    <article class="archive-article archive-type-post">
+  <div class="archive-article-inner">
+    <header class="archive-article-header">
+      <a href="/2025/04/22/%E7%8E%A9%E8%80%8D/girl/" class="archive-article-date">
+  <time class="dt-published" datetime="2025-04-21T16:00:00.000Z" itemprop="datePublished">Apr 22</time>
+</a>
+      
+  
+    <h1 itemprop="name">
+      <a class="archive-article-title" href="/2025/04/22/%E7%8E%A9%E8%80%8D/girl/">girl</a>
     </h1>
   
 
-      </header>
-    
-    <div class="e-content article-entry" itemprop="articleBody">
-      
-        <p>int* pi &#x3D; (int*)malloc(sizeof(int)*1024) ;</p>
-<pre><code>call		nh_malloc_dbg		_heap_alloc_dbg	_heap_alloc_base	HeapAlloc
-</code></pre>
-<p>当有多个call的时候，怎么判断哪个call做分配内存的工作<br>    把当前的指针拖到（栈）里，malloc进行完，它肯定要得到一个指针的指向，—即刚刚分配好的内存，<br>    把得到的指向输入，得到这个内存的地址，进一步的call看看这个call干了什么，从而找到我们需要的那个call。</p>
-<p>怎么分编静态动态库：<br>    看地址	，动态链接库里的函数都在自己的模块里<br>            静态库里的函数都是直接编译到我们 exe里的，跟我们的反汇编中的地址差不多</p>
-<p>free &#x2F;&#x2F;_free_dbg &#x2F;&#x2F;_free_base &#x2F;&#x2F;HeapFree	&#x2F;&#x2F;FF  间接call</p>
-
-      
-    </div>
-    <footer class="article-footer">
-      <a data-url="http://example.com/2025/04/04/%E6%BB%B4%E6%B0%B4C++/malloc+free+new-delete-Vector/malloc+free/" data-id="cm8vb3yc10002awv86agog9m8" data-title="malloc+free" class="article-share-link"><span class="fa fa-share">Share</span></a>
-      
-      
-      
-    </footer>
+    </header>
   </div>
-  
-    
-<nav id="article-nav">
-  
-    <a href="/2025/04/04/%E6%BB%B4%E6%B0%B4C++/malloc+free+new-delete-Vector/new+delete/" id="article-nav-newer" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Newer</strong>
-      <div class="article-nav-title">
-        
-          new+delete
-        
-      </div>
-    </a>
-  
-  
-    <a href="/2025/04/04/%E6%BB%B4%E6%B0%B4C++/malloc+free+new-delete-Vector/Vector/" id="article-nav-older" class="article-nav-link-wrap">
-      <strong class="article-nav-caption">Older</strong>
-      <div class="article-nav-title">Vector</div>
-    </a>
-  
-</nav>
-
-  
 </article>
+  
+  
+    </div></section>
+  
 
 
 </section>
